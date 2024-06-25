@@ -1,0 +1,295 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+* {
+    font-family: "Inter", sans-serif;
+}
+
+.main-layout .content .header-page .title-page {
+    color: rgba(0, 0, 0, 0.90);
+    font-size: 27px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0.2px;
+    text-align: left;
+}
+
+.table-common table {
+    background: #fff;
+    border: solid rgb(227 227 227) 1px;
+}
+
+.table-common .ant-table-thead {
+    background: #F7F7F7 !important;
+    position: sticky;
+    top: 0;
+    /* left: 0; */
+    /* right: 0; */
+    z-index: 9;
+    overflow: auto;
+    width: 100%;
+}
+
+/* scroll custom */
+::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 0px grey;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #0d9e6d;
+    border-radius: 10px;
+}
+
+/* scroll custom */
+
+.message-error {
+    font-weight: 600;
+    text-align: left;
+    color: #f61a1a;
+}
+
+.full-page-loading {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.801);
+    z-index: 99999;
+}
+
+.legend-title {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0.15px;
+    text-align: left;
+    color: #6b7280;
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    background: #fff;
+    padding: 0 10px;
+}
+
+.border-add {
+    border: 1px solid #e3e3e3;
+    padding: 30px 20px;
+}
+
+.upload-common .ant-upload {
+    background-color: white;
+    border-radius: 50%;
+    border: 3px solid #0d9e6d;
+}
+
+.upload-common .ant-upload-wrapper.ant-upload-picture-circle-wrapper .ant-upload.ant-upload-select {
+    width: 180px;
+    height: 180px;
+}
+
+.text-truncate {
+    white-space: initial;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 1;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+
+.text-truncate-3 {
+    white-space: initial;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+
+.ck-content {
+    min-height: 180px;
+}
+
+.page-dot {
+    width: 12px;
+    height: 12px;
+    background: #094174;
+    opacity: 0.5;
+    border-radius: 50%;
+    margin-left: 5px;
+    margin-right: 5px;
+    border: none;
+}
+
+.link-container {}
+
+.link-container .active {
+    background: #252525;
+    color: #FFF;
+    /* transform: translateX(100%); */
+    transition: 0.3s ease;
+}
+
+.link-container .un-active {
+    background: #FFF;
+    color: #252525;
+}
+
+@media only screen and (min-width: 1600px) {
+    .link-container .padding-link {
+        padding: 0 120px;
+    }
+
+}
+
+@media only screen and (min-width: 1400px) {
+    .link-container .padding-link {
+        padding: 0 80px;
+    }
+
+    .link-container .mobile-screen .mobile-screen-container {
+        width: 360px;
+        height: 640px;
+    }
+}
+
+@media only screen and (min-width: 993px) and (max-width: 1400px) {
+    .link-container .padding-link {
+        padding: 0 40px;
+    }
+
+    .link-container .mobile-screen .mobile-screen-container {
+        width: 225px;
+        height: 400px;
+    }
+}
+
+@media only screen and (min-width: 993px) {
+    .link-container .padding-link {
+        padding: 0 40px 60px;
+    }
+
+    .link-container .mobile-screen {
+        height: 100vh;
+    }
+
+    .link-container .mobile-screen .mobile-screen-container {
+        position: fixed;
+        border-radius: 36px;
+    }
+
+    .link-container .preview {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .link-container .padding-link {
+        padding: 0px 20px 80px;
+    }
+
+    .link-container {
+        position: relative;
+    }
+
+    .link-container .mobile-screen .mobile-screen-container {
+        border-radius: 12px;
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 9;
+        transition: transform 0.5s ease-in-out, opacity 0.6s ease-in-out;
+    }
+
+    .link-container .mobile-screen .mobile-screen-container.up {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+
+    .link-container .mobile-screen .mobile-screen-container.down {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+
+    .link-container .preview {
+        position: fixed;
+        bottom: 20px;
+        left: 0;
+        right: 0;
+        z-index: 10;
+        display: flex;
+        justify-content: center;
+    }
+
+}
+
+.card {
+    width: 1100px;
+    height: 700px;
+    min-height: 200px;
+    border-radius: 15px;
+    color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.02);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bank-logo {
+    width: 50px;
+    height: auto;
+}
+
+.card-number {
+    font-size: 1.5em;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+
+.qr-code {
+    width: 80px;
+    height: auto;
+    border: 2px solid #fff;
+    border-radius: 10px;
+}
+
+@media (max-width: 600px) {
+    .card {
+        padding: 15px;
+    }
+
+    .card-number {
+        font-size: 1.2em;
+    }
+
+    .card-holder,
+    .expiry-date {
+        font-size: 1em;
+    }
+
+    .qr-code {
+        width: 60px;
+    }
+}
