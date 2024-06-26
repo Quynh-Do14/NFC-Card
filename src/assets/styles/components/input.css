@@ -1,6 +1,23 @@
-.input-common .title,
-.select-common .title {
-  text-align: left;
+.input-common {
+  position: relative;
+}
+
+.input-common .title {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  z-index: 99;
+  background: #fff;
+  transition: all 0.3s ease;
+}
+
+
+.input-common.focused .title {
+  top: -12px;
+  left: 20px;
+  font-size: 16px;
+  padding: 0 3px;
+  color: #FE7524;
 }
 
 .input-common .title .is-required,
@@ -17,7 +34,7 @@
   color: #094174;
   font-size: 15px;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 24px;
   letter-spacing: 0.15px;
   text-align: left;
@@ -25,11 +42,30 @@
 
 .input-common input.ant-input.ant-input-outlined,
 .input-common .ant-input-number,
-.input-common .ant-input-number,
 .input-common .ant-picker.ant-picker-middle.input-date-common,
 .input-common .ant-input-affix-wrapper {
-  border-radius: 4px !important;
-  height: 36px;
+  border-radius: 6px !important;
+  height: 44px;
+  width: 100%;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  position: relative;
+  border: 1px solid #fe74247d;
+}
+
+.input-common input.ant-input-number-input {
+  border-radius: 6px !important;
+  height: 44px;
+  width: 100%;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  position: relative;
+}
+
+.input-common .focused input.ant-input,
+.input-common .focused .ant-picker {
+  /* border-top: 1px solid #72b6f6;
+  border-left: 1px solid #1890ff;
+  border-right: 1px solid #1890ff; */
+  border: 2px solid #1890ff;
 }
 
 /* .input-common input.ant-input.ant-input-outlined::placeholder,
@@ -48,7 +84,7 @@
 .input-common .ant-input-affix-wrapper.input-error,
 .input-common .input-error .ant-select-selector,
 .input-common .input-error .input-date-common.input-error {
-  border: #f61a1a solid 1px !important;
+  border: #f16161 solid 2px !important;
 }
 
 .input-common input.ant-input.ant-input-outlined,
@@ -88,4 +124,14 @@
 .input-array-custom-common .custom-input-focused {
   border-color: transparent !important;
   box-shadow: none !important;
+}
+
+.upload-common .ant-upload {
+  background-color: white;
+  border: 3px solid #0d9e6d;
+  height: 100%;
+}
+
+.upload-common .ant-upload-wrapper.ant-upload-picture-card-wrapper .ant-upload.ant-upload-select {
+  width: 100%;
 }

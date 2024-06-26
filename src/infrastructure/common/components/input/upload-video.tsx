@@ -88,7 +88,6 @@ function UploadVideo(props: Props) {
             onBlur(true);
         }
     }, [submittedTime]);
-    console.log('value', value);
 
     return (
         <div>

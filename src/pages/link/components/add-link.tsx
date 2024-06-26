@@ -1,9 +1,8 @@
-import Constants from '../../../core/common/constants'
-import { ButtonCommon } from '../../../infrastructure/common/components/button/button-common';
-import { BookOutlined, PlusCircleOutlined } from '@ant-design/icons';
 import { Col, Row } from 'antd';
-import InputArrayTextCommon from '../../../infrastructure/common/components/input/array/input-array-common';
-import SwitchArrayTextCommon from '../../../infrastructure/common/components/input/array/switch-array-common';
+import LinkComponents from './add-link-components/link';
+import Constants from '../../../core/common/constants';
+import ShopComponent from './add-link-components/shop';
+import { useState } from 'react';
 type Props = {
     selectIndex: number,
     setSelectIndex: Function,
@@ -14,7 +13,7 @@ type Props = {
     listEditAvailable: Array<any>,
     setListEditAvailable: Function,
     onEditTitle: Function,
-    onDeleteElement: Function
+    onDeleteElement: Function,
 }
 const AddLink = (props: Props) => {
     const {
@@ -29,14 +28,53 @@ const AddLink = (props: Props) => {
         onEditTitle,
         onDeleteElement,
     } = props;
+    const [validate, setValidate] = useState<any>({});
+    const [loading, setLoading] = useState<boolean>(false);
+    const [submittedTime, setSubmittedTime] = useState<any>();
+    const [_dataShop, _setDataShop] = useState<any>({});
+    const dataShop = _dataShop;
+
+    const setDataShop = (data: any) => {
+        Object.assign(dataShop, { ...data });
+        _setDataShop({ ...dataShop })
+    }
+
+    const isValidData = () => {
+        let allRequestOK = true;
+
+        setValidate({ ...validate });
+
+        Object.values(validate).forEach((it: any) => {
+            if (it.isError === true) {
+                allRequestOK = false;
+            }
+        });
+        return allRequestOK;
+    };
 
     return (
         <div className='add-link-container border-r-[1px] border-r-[#ffffff] flex flex-col gap-6 px-2 relative'>
-            <div className='bg-[#dfe8f9] shadow-sm rounded-[16px] px-4 py-6'>
-                <div className='text-[16px] font-semibold'>
-                    Đường dẫn của bạn:
-                </div>
-            </div>
+            <Row gutter={[0, 15]} className='bg-[#dfe8f9] shadow-sm rounded-[16px] px-4 py-6'>
+                <Col xs={24} sm={24} md={14} className='flex items-center gap-1'>
+                    <div className='text-[15px] font-semibold'>
+                        Liên kết của bạn:
+                    </div>
+                    <div className='text-[15px] font-normal underline cursor-pointer'>
+                        techid:QuynhDo
+                    </div>
+                </Col>
+                <Col xs={24} sm={24} md={10} className='flex sm:justify-start md:justify-end'>
+                    <div className='bg-[#FFFFFF] rounded-[20px] shadow-sm flex items-center gap-1 p-3 cursor-pointer'>
+                        <div className='text-[15px] font-semibold'>
+                            Sao chép liên kết
+                        </div>
+                        <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M21 8C21 6.34315 19.6569 5 18 5H10C8.34315 5 7 6.34315 7 8V20C7 21.6569 8.34315 23 10 23H18C19.6569 23 21 21.6569 21 20V8ZM19 8C19 7.44772 18.5523 7 18 7H10C9.44772 7 9 7.44772 9 8V20C9 20.5523 9.44772 21 10 21H18C18.5523 21 19 20.5523 19 20V8Z" fill="#0F0F0F" />
+                            <path d="M6 3H16C16.5523 3 17 2.55228 17 2C17 1.44772 16.5523 1 16 1H6C4.34315 1 3 2.34315 3 4V18C3 18.5523 3.44772 19 4 19C4.55228 19 5 18.5523 5 18V4C5 3.44772 5.44772 3 6 3Z" fill="#0F0F0F" />
+                        </svg>
+                    </div>
+                </Col>
+            </Row>
             <div className='flex flex-col gap-6 padding-link'>
                 <div>
                     <div className='flex'>
@@ -57,118 +95,31 @@ const AddLink = (props: Props) => {
                         </div>
                     </div>
                 </div>
-                <div className='flex justify-between'>
-                    <ButtonCommon
-                        classColor={'green'}
-                        onClick={onAddURL}
-                        title={'Thêm liên kết'}
-                        icon={<PlusCircleOutlined />}
-                    />
-
-                    <ButtonCommon
-                        classColor={'green'}
-                        onClick={onAddTitle}
-                        title={'Thêm tiêu đề'}
-                        icon={<BookOutlined />}
-                    />
+                <div className="tab-content">
+                    <div className={`tab-pane ${selectIndex == 1 ? "activate" : "inactivate"}`}>
+                        <LinkComponents
+                            listLink={listLink}
+                            setListLink={setListLink}
+                            onAddURL={onAddURL}
+                            onAddTitle={onAddTitle}
+                            listEditAvailable={listEditAvailable}
+                            setListEditAvailable={setListEditAvailable}
+                            onEditTitle={onEditTitle}
+                            onDeleteElement={onDeleteElement}
+                        />
+                    </div>
+                    <div className={`tab-pane ${selectIndex == 2 ? "activate" : "inactivate"}`}>
+                        <ShopComponent
+                            data={dataShop}
+                            setData={setDataShop}
+                            validate={validate}
+                            setValidate={setValidate}
+                            submittedTime={submittedTime}
+                        />
+                    </div>
                 </div>
-                <div className='flex flex-col gap-4'>
-                    {
-                        listLink.map((it, index) => {
-                            return (
-                                <Row gutter={[20, 20]} align={"middle"} key={index} className='border-[1px] border-[#ffffff] bg-[#FFF] rounded-[20px] px-4 py-6 relative'>
-                                    <Col xs={4} sm={2} lg={3} xl={2} className='cursor-pointer'>
-                                        <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M12 3V21M12 3L9 6M12 3L15 6M12 21L15 18M12 21L9 18M3 12H21M3 12L6 15M3 12L6 9M21 12L18 9M21 12L18 15" stroke="#2525259e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                    </Col>
-                                    {/* <Col sm={19} lg={16} xl={19} className={`${it.isURL ? "justify-center" : "justify-center"} flex`}> */}
-                                    <Col xs={14} sm={19} lg={16} xl={19} className="justify-center flex">
-                                        {
-                                            listEditAvailable.includes(index)
-                                                ?
-                                                <div
-                                                    className='flex items-center gap-4 cursor-pointer'
-                                                >
-                                                    <div className={`flex flex-col gap-2`}>
-                                                        <InputArrayTextCommon
-                                                            label={'Tiêu đề'}
-                                                            attribute={'title'}
-                                                            isRequired={false}
-                                                            data={listLink}
-                                                            setData={setListLink}
-                                                            disabled={false}
-                                                            index={index}
-                                                            maxLength={it.isURL ? undefined : 30}
-                                                            handlePressEnter={() => onEditTitle(index)}
-                                                        />
-                                                        {
-                                                            it.isURL
-                                                            &&
-                                                            <InputArrayTextCommon
-                                                                label={'Liên kết'}
-                                                                attribute={'content'}
-                                                                isRequired={false}
-                                                                data={listLink}
-                                                                setData={setListLink}
-                                                                disabled={false}
-                                                                index={index}
-                                                                handlePressEnter={() => onEditTitle(index)}
-                                                            />
-                                                        }
-                                                    </div>
-                                                    <div
-                                                        className='flex items-center gap-2 cursor-pointer'
-                                                        onClick={() => onEditTitle(index)}
-                                                    >
-                                                        <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M20.8477 1.87868C19.6761 0.707109 17.7766 0.707105 16.605 1.87868L2.44744 16.0363C2.02864 16.4551 1.74317 16.9885 1.62702 17.5692L1.03995 20.5046C0.760062 21.904 1.9939 23.1379 3.39334 22.858L6.32868 22.2709C6.90945 22.1548 7.44285 21.8693 7.86165 21.4505L22.0192 7.29289C23.1908 6.12132 23.1908 4.22183 22.0192 3.05025L20.8477 1.87868ZM18.0192 3.29289C18.4098 2.90237 19.0429 2.90237 19.4335 3.29289L20.605 4.46447C20.9956 4.85499 20.9956 5.48815 20.605 5.87868L17.9334 8.55027L15.3477 5.96448L18.0192 3.29289ZM13.9334 7.3787L3.86165 17.4505C3.72205 17.5901 3.6269 17.7679 3.58818 17.9615L3.00111 20.8968L5.93645 20.3097C6.13004 20.271 6.30784 20.1759 6.44744 20.0363L16.5192 9.96448L13.9334 7.3787Z" fill="#0F0F0F" />
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                                :
-                                                <div
-                                                    className='flex items-center gap-4 cursor-pointer'
-                                                    onClick={() => onEditTitle(index)}
-                                                >
-                                                    <div className='flex flex-col gap-4'>
-                                                        <div className='text-[14px] text-[#1e2330] font-medium text-truncate break-all'>{it.title ? it.title : "Thêm tiêu đề"}</div>
-                                                        {
-                                                            it.isURL
-                                                            &&
-                                                            <div className='text-[14px] text-[#1e2330] font-medium text-truncate break-all'>{it.content ? it.content : "Thêm liên kết"}</div>
-                                                        }
-                                                    </div>
-                                                    <div className='w-5 h-auto'>
-                                                        <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M20.8477 1.87868C19.6761 0.707109 17.7766 0.707105 16.605 1.87868L2.44744 16.0363C2.02864 16.4551 1.74317 16.9885 1.62702 17.5692L1.03995 20.5046C0.760062 21.904 1.9939 23.1379 3.39334 22.858L6.32868 22.2709C6.90945 22.1548 7.44285 21.8693 7.86165 21.4505L22.0192 7.29289C23.1908 6.12132 23.1908 4.22183 22.0192 3.05025L20.8477 1.87868ZM18.0192 3.29289C18.4098 2.90237 19.0429 2.90237 19.4335 3.29289L20.605 4.46447C20.9956 4.85499 20.9956 5.48815 20.605 5.87868L17.9334 8.55027L15.3477 5.96448L18.0192 3.29289ZM13.9334 7.3787L3.86165 17.4505C3.72205 17.5901 3.6269 17.7679 3.58818 17.9615L3.00111 20.8968L5.93645 20.3097C6.13004 20.271 6.30784 20.1759 6.44744 20.0363L16.5192 9.96448L13.9334 7.3787Z" fill="#0F0F0F" />
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                        }
-                                    </Col>
 
-                                    <Col xs={6} sm={3} lg={5} xl={3} className='flex flex-col items-center gap-4'>
-                                        <SwitchArrayTextCommon
-                                            attribute={'isShow'}
-                                            data={listLink}
-                                            setData={setListLink}
-                                            dataAttribute={""}
-                                            index={index}
-                                        />
-                                        <div className='cursor-pointer' onClick={() => onDeleteElement(it.id)}>
-                                            <svg width="22px" height="22px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M18 6L17.1991 18.0129C17.129 19.065 17.0939 19.5911 16.8667 19.99C16.6666 20.3412 16.3648 20.6235 16.0011 20.7998C15.588 21 15.0607 21 14.0062 21H9.99377C8.93927 21 8.41202 21 7.99889 20.7998C7.63517 20.6235 7.33339 20.3412 7.13332 19.99C6.90607 19.5911 6.871 19.065 6.80086 18.0129L6 6M4 6H20M16 6L15.7294 5.18807C15.4671 4.40125 15.3359 4.00784 15.0927 3.71698C14.8779 3.46013 14.6021 3.26132 14.2905 3.13878C13.9376 3 13.523 3 12.6936 3H11.3064C10.477 3 10.0624 3 9.70951 3.13878C9.39792 3.26132 9.12208 3.46013 8.90729 3.71698C8.66405 4.00784 8.53292 4.40125 8.27064 5.18807L8 6" stroke="#2525259e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                            </svg>
-                                        </div>
-                                    </Col>
-                                </Row>
-                            )
-                        })
-                    }
-                </div>
             </div>
-
         </div >
     )
 }

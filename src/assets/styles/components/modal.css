@@ -28,12 +28,6 @@
     -webkit-transition: .3s;
 }
 
-/* .modal-common .btn-Cancel:hover,
-.modal-common .btn-ok:hover {
-    background: #f4a070 !important;
-    color: #FFF !important;
-} */
-
 .modal-common .title {
     color: #e90303;
     font-size: 24px;
@@ -55,4 +49,20 @@
     letter-spacing: 0.5px;
     text-align: center;
     border-bottom: 2px solid #d5dfea;
+}
+
+.ant-modal.custom-modal {
+    width: 70% !important;
+}
+
+@media only screen and (min-width:769px)and (max-width: 1200px) {
+    .ant-modal.custom-modal {
+        width: 90% !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .ant-modal.custom-modal {
+        width: 100% !important;
+    }
 }

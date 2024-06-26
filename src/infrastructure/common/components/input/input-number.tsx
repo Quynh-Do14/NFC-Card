@@ -28,6 +28,7 @@ const InputNumberCommon = (props: Props) => {
         disabled = false,
     } = props;
     const [value, setValue] = useState<number>(0);
+    const [isFocused, setIsFocused] = useState<boolean>(false);
 
     const onChange = (val: any) => {
         setValue(val || null);
@@ -39,8 +40,14 @@ const InputNumberCommon = (props: Props) => {
     const onBlur = (isImplicitChange = false) => {
         if (isRequired) {
             validateFields(isImplicitChange, attribute, !value, setValidate, validate, !value ? `Vui lòng nhập ${labelLower}` : "");
-
         }
+        if (value) {
+            setIsFocused(true);
+        }
+        else {
+            setIsFocused(false);
+        }
+
     };
 
     useEffect(() => {
@@ -55,9 +62,13 @@ const InputNumberCommon = (props: Props) => {
         }
     }, [submittedTime]);
 
+    const handleFocus = () => {
+        setIsFocused(true);
+    };
+
     return (
         <div>
-            <div className='mb-4 input-common'>
+            <div className={`mb-4 input-common ${isFocused ? 'focused' : ''}`}>
                 <div className='title mb-2'>
                     <span>
                         <span className='label'>{label}</span>
@@ -72,7 +83,7 @@ const InputNumberCommon = (props: Props) => {
                         value={value}
                         onChange={onChange}
                         onBlur={() => onBlur(false)}
-                        placeholder={`Nhập ${label}`}
+                        onFocus={handleFocus}
                     />
                     <MessageError isError={validate[attribute]?.isError || false} message={validate[attribute]?.message || ""} />
                 </div>

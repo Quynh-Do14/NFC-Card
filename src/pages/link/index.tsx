@@ -8,7 +8,6 @@ const LinkTreePage = () => {
     const [selectIndex, setSelectIndex] = useState(1);
     const [listEditAvailable, setListEditAvailable] = useState<Array<any>>([]);
     const [isPreview, setIsPreview] = useState<boolean>(false);
-    const [isChange, setIsChange] = useState<boolean>(false);
     const [listLink, setListLink] = useState<Array<any>>([
         {
             id: 0,
@@ -52,6 +51,9 @@ const LinkTreePage = () => {
         if (listEditAvailable.includes(index)) {
             setListEditAvailable(prev => prev.filter(it => it !== index))
         }
+        setListLink([
+            ...listLink
+        ]);
     };
 
     const onDeleteElement = (id: number) => {
@@ -77,8 +79,6 @@ const LinkTreePage = () => {
                             setListEditAvailable={setListEditAvailable}
                             onEditTitle={onEditTitle}
                             onDeleteElement={onDeleteElement}
-                        // isChange={isChange}
-                        // setIsChange={setIsChange}
                         />
                     </Col>
                     <Col xs={24} sm={24} lg={8} xl={8}>

@@ -1,9 +1,9 @@
 import { SearchOutlined } from '@ant-design/icons';
 import { Input } from 'antd';
 import "../../../../assets/styles/components/input.css"
+import { useState } from 'react';
 type Props = {
     label?: string,
-    placeholder: string,
     value: string
     onChange: any,
     disabled: boolean,
@@ -12,14 +12,28 @@ type Props = {
 export const InputCommon = (props: Props) => {
     const {
         label,
-        placeholder,
         value,
         onChange,
         disabled,
         handlePressEnter
     } = props;
+    const [isFocused, setIsFocused] = useState<boolean>(false);
+    const onBlur = () => {
+        if (value) {
+            setIsFocused(true);
+        }
+        else {
+            setIsFocused(false);
+        }
+
+    };
+
+    const handleFocus = () => {
+        setIsFocused(true);
+    };
+
     return (
-        <div className='input-common'>
+        <div className={`mb-4 input-common ${isFocused ? 'focused' : ''}`}>
             {
                 label
                 &&
@@ -36,10 +50,10 @@ export const InputCommon = (props: Props) => {
                 value={value ? value : ""}
                 onChange={onChange}
                 disabled={disabled}
-                placeholder={placeholder}
                 maxLength={36}
+                onBlur={onBlur}
+                onFocus={handleFocus}
                 onPressEnter={handlePressEnter}
-                onBlur={handlePressEnter}
             />
         </div>
     )

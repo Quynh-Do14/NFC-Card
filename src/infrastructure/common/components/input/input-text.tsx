@@ -30,6 +30,7 @@ const InputTextCommon = (props: Props) => {
         handlePressEnter
     } = props;
     const [value, setValue] = useState<string>("");
+    const [isFocused, setIsFocused] = useState<boolean>(false);
 
     const onChange = (e: any) => {
         setValue(e.target.value || "");
@@ -37,6 +38,7 @@ const InputTextCommon = (props: Props) => {
             [attribute]: e.target.value || ''
         });
     };
+
     const labelLower = label?.toLowerCase();
     const onBlur = (isImplicitChange = false) => {
         let checkValidate
@@ -51,11 +53,18 @@ const InputTextCommon = (props: Props) => {
                 checkValidate = validatePhoneNumber(value);
                 validateFields(isImplicitChange, attribute, !checkValidate, setValidate, validate, !checkValidate ? value ? `Vui lòng nhập đúng định dạng ${labelLower}` : `Vui lòng nhập ${labelLower}` : "");
             }
-            if (attribute.includes("cccd") || attribute.includes("long")) {
+            if (attribute.includes("cccd")) {
                 checkValidate = validateCMND(value);
                 validateFields(isImplicitChange, attribute, !checkValidate, setValidate, validate, !checkValidate ? value ? `${label} bao gồm 12 số` : `Vui lòng nhập ${labelLower}` : "");
             }
         }
+        if (value) {
+            setIsFocused(true);
+        }
+        else {
+            setIsFocused(false);
+        }
+
     };
 
     useEffect(() => {
@@ -68,11 +77,14 @@ const InputTextCommon = (props: Props) => {
             onBlur(true);
         }
     }, [submittedTime]);
-    console.log('validate', validate);
+
+    const handleFocus = () => {
+        setIsFocused(true);
+    };
 
     return (
         <div>
-            <div className='mb-4 input-common'>
+            <div className={`mb-4 input-common ${isFocused ? 'focused' : ''}`}>
                 <div className='title mb-2'>
                     <span>
                         <span className='label'>{label}</span>
@@ -85,8 +97,8 @@ const InputTextCommon = (props: Props) => {
                         value={value ? value : ""}
                         onChange={onChange}
                         onBlur={() => onBlur(false)}
+                        onFocus={handleFocus}
                         disabled={disabled}
-                        placeholder={`Thêm ${labelLower}`}
                         className={`${validate[attribute]?.isError ? "input-error" : ""}`}
                         onPressEnter={handlePressEnter}
                     />

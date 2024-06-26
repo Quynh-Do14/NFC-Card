@@ -1,5 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Constants from '../../../core/common/constants';
+import avatar from "../../../assets/images/avatar.png"
+import LinkViewComponent from './view-components/link';
+import ShopViewComponent from './view-components/shop';
 type Props = {
     selectIndex: number,
     setSelectIndex: Function,
@@ -14,71 +17,58 @@ const ViewMobile = (props: Props) => {
         setSelectIndex,
         listLink,
         listEditAvailable,
-        isPreview
+        isPreview,
     } = props;
     const [listLinkView, setListLinkView] = useState<Array<any>>([]);
 
     useEffect(() => {
-        setListLinkView(listLink)
+        if (listLink) {
+            setListLinkView(listLink)
+        }
     }, [listLink, listEditAvailable]);
-    console.log("listLink", listLink);
-    console.log("listEditAvailable", listEditAvailable);
-
+    const setSelectTab = (value: number) => {
+        setSelectIndex(value)
+    }
     return (
         <div className='mobile-screen flex justify-center items-center'>
-            <div className={`${isPreview ? "up" : "down"} mobile-screen-container  border-4 border-[#FFF] overflow-auto shadow-xl bg-[#eecbbf] flex flex-col items-center gap-6 p-4`} >
-                <div className='text-[14px] font-semibold text-center'>
-                    @QuynhDo
-                </div>
-                <div className='flex'>
-                    <div className='flex border-2 border-[#ffffff] bg-[#FFF] rounded-[20px]'>
-                        {
-                            Constants.TabSelect.List.map((it, index) => {
-                                return (
-                                    <div
-                                        key={index}
-                                        className={`${selectIndex == it.value ? "active" : "un-active"} px-6 py-3 w-[140px] text-center rounded-[20px] cursor-pointer`}
-                                        onClick={() => setSelectIndex(it.value)}
-                                    >
-                                        <div className='text-[14px] font-semibold'>{it.label} </div>
-                                    </div>
-                                )
-                            })
-                        }
+            <div className={`${isPreview ? "up" : "down"} mobile-screen-container border-4 border-[#FFF] overflow-auto shadow-xl bg-[#eecbbf] `} >
+                <div className='scroll-auto flex flex-col items-center gap-6 px-4 py-8'>
+                    <div>
+                        <img src={avatar} alt="" width={80} height={80} />
+                    </div>
+                    <div className='text-[14px] font-semibold text-center'>
+                        @QuynhDo
+                    </div>
+                    <div className='flex'>
+                        <div className='flex border-2 border-[#ffffff] bg-[#FFF] rounded-[20px]'>
+                            {
+                                Constants.TabSelect.List.map((it, index) => {
+                                    return (
+                                        <div
+                                            key={index}
+                                            className={`${selectIndex == it.value ? "active" : "inactive"} px-6 py-3 w-[130px] text-center rounded-[20px] cursor-pointer`}
+                                            onClick={() => setSelectTab(it.value)}
+                                        >
+                                            <div className='text-[13px] font-semibold'>{it.label} </div>
+                                        </div>
+                                    )
+                                })
+                            }
+                        </div>
+                    </div>
+                    <div className="tab-content">
+                        <div className={`tab-pane ${selectIndex == 1 ? "activate" : "inactivate"}`}>
+                            <LinkViewComponent
+                                listLinkView={listLinkView}
+                            />
+                        </div>
+                        <div className={`tab-pane ${selectIndex == 2 ? "activate" : "inactivate"}`}>
+                            <ShopViewComponent />
+                        </div>
                     </div>
                 </div>
-                <div className='flex flex-col gap-4 items-center w-full'>
-                    {
-                        listLinkView.map((it, index) => {
-                            if (it.isShow) {
-                                if (it.isURL) {
-                                    return (
-                                        <div key={index} className='bg-[#FFF] rounded-[24px] px-6 py-4 w-full '>
-                                            <div className='text-[13px] text-[#1e2330] font-medium text-center'>
-                                                {it.title}
-                                            </div>
-                                        </div>
-                                    )
-                                }
-                                else {
-                                    return (
-                                        <div key={index}>
-                                            <div className='text-[14px] text-[#1e2330] text font-semibold'>
-                                                {it.title}
-                                            </div>
-                                        </div>
-                                    )
-                                }
-
-                            }
-                            return
-                        })
-                    }
-                </div>
-
-            </div >
+            </div>
         </div>
-
 
     )
 }

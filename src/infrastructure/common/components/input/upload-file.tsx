@@ -39,8 +39,7 @@ function UploadFileCommon(props: Props) {
             ])
         });
     };
-    console.log("listImg",);
-    
+
     return (
         <div>
             <div className='mb-4 input-common'>
