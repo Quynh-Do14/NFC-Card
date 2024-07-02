@@ -54,7 +54,7 @@ const AddLink = (props: Props) => {
 
     return (
         <div className='add-link-container border-r-[1px] border-r-[#ffffff] flex flex-col gap-6 px-2 relative'>
-            <Row gutter={[0, 15]} className='bg-[#dfe8f9] shadow-sm rounded-[16px] px-4 py-6'>
+            <Row gutter={[0, 15]} className='bg-[#FFFFFF] shadow-sm rounded-[16px] px-4 py-6'>
                 <Col xs={24} sm={24} md={14} className='flex items-center gap-1'>
                     <div className='text-[15px] font-semibold'>
                         Liên kết của bạn:
@@ -64,7 +64,7 @@ const AddLink = (props: Props) => {
                     </div>
                 </Col>
                 <Col xs={24} sm={24} md={10} className='flex sm:justify-start md:justify-end'>
-                    <div className='bg-[#FFFFFF] rounded-[20px] shadow-sm flex items-center gap-1 p-3 cursor-pointer'>
+                    <div className='bg-[#eaedf2] rounded-[20px] shadow-md flex items-center gap-1 p-3 cursor-pointer'>
                         <div className='text-[15px] font-semibold'>
                             Sao chép liên kết
                         </div>
@@ -84,7 +84,7 @@ const AddLink = (props: Props) => {
                                     return (
                                         <div
                                             key={index}
-                                            className={`${selectIndex == it.value ? "active" : "un-active"} px-6 py-3 w-[140px] text-center rounded-[20px] cursor-pointer`}
+                                            className={`${selectIndex == it.value ? "active" : "un-active"} px-6 py-3 w-[130px] text-center rounded-[20px] cursor-pointer`}
                                             onClick={() => setSelectIndex(it.value)}
                                         >
                                             <div className='text-[14px] font-semibold'>{it.label} </div>

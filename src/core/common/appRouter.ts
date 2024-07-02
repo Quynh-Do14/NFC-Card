@@ -8,6 +8,7 @@ export const ROUTE_PATH = {
     HOME_PAGE: `${PREFIX}/`,
     CUSTOM_CARD: `${PREFIX}/custom-card`,
     LINK: `${PREFIX}/link`,
+    CUSTOMIZE_LINK: `${PREFIX}/customize-link`,
     PROFILE: `${PREFIX}/profile`,
 
 

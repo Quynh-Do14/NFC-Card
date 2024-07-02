@@ -6,7 +6,7 @@ import "../../../../assets/styles/components/input.css"
 
 type Props = {
     setFile: Function,
-    setFileUrl: Function,
+    setDataCard: Function,
     setChangeImg: Function,
     listImg: Array<any>,
     setListImg: Function,
@@ -21,7 +21,7 @@ const getBase64 = (img: any, callback: any) => {
 function UploadBackgroundImage(props: Props) {
     const {
         setFile,
-        setFileUrl,
+        setDataCard,
         setChangeImg,
         listImg,
         setListImg,
@@ -33,27 +33,32 @@ function UploadBackgroundImage(props: Props) {
     const handleChange = (info: any) => {
         if (info.file) {
             getBase64(info.file, (url: any) => {
-                setFileUrl(url);
+                setDataCard({
+                    ["backgroundImageId"]: Number(listImg.length ? listImg[listImg.length - 1].label : 0) + 1 || '',
+                    ["backgroundImage"]: url || '',
+                    ["backgroundColor"]: ''
+
+                });
                 setChangeImg(info.file);
                 setListImg([
                     ...listImg,
                     {
-                        label: "",
+                        label: Number(listImg.length ? listImg[listImg.length - 1].label : 0) + 1,
                         value: url
                     }
                 ])
             });
         }
     };
+
     useEffect(() => {
         if (attributeImg) {
-            setFileUrl(configImageURL(attributeImg))
+            setChangeImg(configImageURL(attributeImg))
         }
         else {
-            setFileUrl(attributeImg)
+            setChangeImg(attributeImg)
         }
     }, [attributeImg])
-
 
     return (
         <div className="relative upload-common">

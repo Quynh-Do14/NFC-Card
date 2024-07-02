@@ -1,6 +1,5 @@
 import { Col, Layout, Menu, Row, } from 'antd';
 import { useEffect, useState } from 'react';
-import { DoubleLeftOutlined, DoubleRightOutlined } from '@ant-design/icons';
 import "../../../assets/styles/components/MainLayout.css";
 import { ROUTE_PATH } from '../../../core/common/appRouter';
 import authService from '../../repositories/auth/service/auth.service';
@@ -9,12 +8,7 @@ import { useRecoilState } from 'recoil';
 import DialogConfirmCommon from '../components/modal/dialogConfirm';
 import Constants from '../../../core/common/constants';
 import { ProfileState } from '../../../core/atoms/profile/profileState';
-import { TeacherState } from '../../../core/atoms/teacher/teacherState';
-import { DisciplineState } from '../../../core/atoms/discipline/disciplineState';
-import { CategoryState } from '../../../core/atoms/category/categoryState';
 import { isTokenStoraged } from '../../utils/storage';
-import { CourseState } from '../../../core/atoms/course/courseState';
-import { Header } from 'antd/es/layout/layout';
 
 const { Content, Sider } = Layout;
 
@@ -63,7 +57,7 @@ const MainLayout = ({ ...props }: any) => {
                         setDataProfile(response)
                         setProfileState(
                             {
-                                user: response,
+                                data: response,
                             }
                         )
                     }
@@ -125,7 +119,7 @@ const MainLayout = ({ ...props }: any) => {
                             })}
                         </Menu>
                     </Sider>
-                    <Content className='bg-[#f2f2f0] flex flex-col py-3'>
+                    <Content className='bg-content flex flex-col py-3'>
                         {props.children}
                     </Content>
                 </Layout>

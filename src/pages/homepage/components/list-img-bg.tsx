@@ -1,44 +1,61 @@
-import React from 'react'
+import React, { useState } from 'react'
 import UploadBackgroundImage from '../../../infrastructure/common/components/input/upload-bg-image'
 import { Col, Row } from 'antd'
 type Props = {
     listImg: Array<any>,
-    setChangeImg: Function,
     setListImg: Function,
-    onChangeImg: Function,
+    dataCard: any
+    setDataCard: Function,
+
 }
 const ListImageBGComponent = (props: Props) => {
     const {
         listImg,
-        setChangeImg,
         setListImg,
-        onChangeImg,
-    } = props
+        dataCard,
+        setDataCard,
+    } = props;
+
+    const onChange = (it: any) => {
+        setDataCard({
+            ["backgroundImageId"]: it.label || '',
+            ["backgroundImage"]: it.value || '',
+            ["backgroundColor"]: ''
+        });
+    };
+
     return (
-        <Row gutter={[10, 10]}>
-            <Col xs={12} sm={8} lg={6} xl={4}>
-                <UploadBackgroundImage
-                    setFile={() => { }}
-                    setFileUrl={() => { }}
-                    setChangeImg={setChangeImg}
-                    listImg={listImg}
-                    setListImg={setListImg}
-                    attributeImg={null}
-                />
-            </Col>
-            {listImg.map((it, index) => {
-                return (
-                    <Col xs={12} sm={8} lg={6} xl={4} key={index}>
-                        <div
-                            onClick={() => onChangeImg(it.value)}
-                            className='border-[1px] border-[#d3d3d3] cursor-pointer flex justify-center items-center overflow-hidden w-full h-full '
-                        >
-                            <img src={it.value} alt="" className='w-full h-full object-cover' />
-                        </div>
+        <div className='bg-[#ffffff] shadow-sm border-[1px] border-[#f2f2f0] rounded-[12px] p-6 flex flex-col gap-4'>
+            <div className="text-[18px] text-[#1e2330] font-semibold">Chọn ảnh nền</div>
+            <div className='bg-[#ffffff] p-4'>
+                <Row gutter={[10, 10]}>
+                    <Col xs={12} sm={12} lg={12} xl={8} xxl={6} >
+                        <UploadBackgroundImage
+                            setFile={() => { }}
+                            setDataCard={setDataCard}
+                            setChangeImg={() => { }}
+                            listImg={listImg}
+                            setListImg={setListImg}
+                            attributeImg={null}
+                        />
                     </Col>
-                )
-            })}
-        </Row>
+                    {listImg.map((it, index) => {
+                        return (
+                            <Col xs={12} sm={12} lg={12} xl={8} xxl={6} key={index}>
+                                <div className={`${dataCard.backgroundImageId == it.label ? "bg-[#cbe5fe]" : ""} p-2 rounded-[8px]`}>
+                                    < div
+                                        onClick={() => onChange(it)}
+                                        className='border-[1px] rounded-[8px] border-[#d3d3d3] cursor-pointer flex justify-center items-center overflow-hidden w-full h-full'
+                                    >
+                                        <img src={it.value} alt="" className='w-full h-full object-cover' />
+                                    </div>
+                                </div>
+                            </Col>
+                        )
+                    })}
+                </Row >
+            </div>
+        </div>
     )
 }
 

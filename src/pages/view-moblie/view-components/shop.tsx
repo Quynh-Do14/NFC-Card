@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import { ButtonCommon } from '../../../../infrastructure/common/components/button/button-common'
+import { ButtonCommon } from '../../../infrastructure/common/components/button/button-common'
 import { Col, Row, Switch, Tooltip } from 'antd'
-import ModalCommon from '../../../../infrastructure/common/components/modal/modalCommon'
+import ModalCommon from '../../../infrastructure/common/components/modal/modalCommon'
+import Constants from '../../../core/common/constants'
 
 const dataFake = [
     {
@@ -35,21 +36,17 @@ const dataFake = [
         isShow: true
     },
 ]
-// type Props = {
-//     data: any,
-//     setData: Function,
-//     validate: any,
-//     setValidate: Function,
-//     submittedTime: any,
-// }
-const ShopViewComponent = (props: any) => {
+type Props = {
+    dataProfile: any,
+    buttonType: any
+}
+const ShopViewComponent = (props: Props) => {
     const {
-        data,
-        setData,
-        validate,
-        setValidate,
-        submittedTime
+        dataProfile,
+        buttonType
     } = props;
+    const colorTextBtn = dataProfile?.colorTextBtn
+    const bgBtn = dataProfile?.bgBtn
 
     return (
         <div className='flex flex-col gap-6'>
@@ -57,13 +54,23 @@ const ShopViewComponent = (props: any) => {
                 {
                     dataFake.map((it, index) => {
                         return (
-                            <Col xs={12} sm={12} md={8} lg={12} key={index} className='shop-view-product-container'>
-                                <div className='flex flex-col gap-3 h-full bg-[#FFF] rounded-[16px] p-1 shadow-md cursor-pointer'>
+                            <Col xs={24} sm={12} md={8} lg={24} xl={12} key={index} className='shop-view-product-container'>
+                                <div className='flex flex-col gap-3 h-full rounded-[16px] p-1 shadow-md cursor-pointer'
+                                    style={{
+                                        background: buttonType.type == Constants.ConfigStyleButton.Outline.value ? "#FFF" : bgBtn
+                                    }}
+                                >
                                     <img src={it.img} alt="" className='rounded-t-[16px]' />
-                                    <div className='flex flex-col items-center justify-center h-full gap-4 py-6 px-3'>
-                                        <div className='text-truncate text-[15px] font-semibold'>
-                                            {it.name}
-                                        </div>
+                                    <div className='flex flex-col items-center justify-center h-full gap-4 pt-2 pb-6 px-1'>
+                                        <Tooltip title={it.name}>
+                                            <div className='text-truncate text-[13px] font-semibold'
+                                                style={{
+                                                    color: colorTextBtn
+                                                }}
+                                            >
+                                                {it.name}
+                                            </div>
+                                        </Tooltip>
                                     </div>
                                 </div>
                             </Col>

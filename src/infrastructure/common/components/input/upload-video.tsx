@@ -73,7 +73,6 @@ function UploadVideo(props: Props) {
 
     };
 
-    console.log("value", value);
 
     const labelLower = label?.toLowerCase();
 

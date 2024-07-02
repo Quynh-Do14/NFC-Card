@@ -61,7 +61,7 @@ const ProfileModal = (props: Props) => {
         ).then((response) => {
           setDetailProfile(response)
           setDetailState({
-            user: response
+            data: response
           })
         })
       }

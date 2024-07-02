@@ -1,96 +1,99 @@
 import React, { useState } from 'react'
 import MainLayout from '../../infrastructure/common/Layouts/Main-Layout'
-import { Col, Row } from 'antd'
-import AddLink from './components/add-link'
 import ViewMobile from '../view-moblie/view'
+import { Col, Row } from 'antd'
+import InfoProfileComponent from './components/info'
+import BackgroundComponent from './components/background'
+import ButtonComponent from './components/button'
+import FontComponent from './components/font'
 
-const LinkTreePage = () => {
-    const [selectIndex, setSelectIndex] = useState(1);
-    const [listEditAvailable, setListEditAvailable] = useState<Array<any>>([]);
+const listLink = [
+    {
+        id: 1,
+        title: "Senior Front-End Developer",
+        isURL: false,
+        isShow: true,
+    },
+    {
+        id: 2,
+        title: "Senior Front-End Developer",
+        content: "https://www.youtube.com/watch?v=DZDYZ9nRHfU&list=RDkNPX8folSyo&index=5",
+        isURL: true,
+        isShow: true,
+    },
+]
+const CustomizeLinkPage = () => {
     const [isPreview, setIsPreview] = useState<boolean>(false);
-    const [listLink, setListLink] = useState<Array<any>>([
-        {
-            id: 0,
-            title: null,
-            isURL: false,
-            isShow: false,
-        }
-    ]);
+    const [selectIndex, setSelectIndex] = useState(1);
+    const [buttonType, setButtonType] = useState<any>({});
 
-    const onAddURL = () => {
-        setListLink([
-            ...listLink,
-            {
-                id: Number(listLink.length ? listLink[listLink.length - 1].id : 0) + 1,
-                title: null,
-                content: null,
-                isURL: true,
-                isShow: false,
-            }
-        ])
+    const [validate, setValidate] = useState<any>({});
+    const [loading, setLoading] = useState<boolean>(false);
+    const [submittedTime, setSubmittedTime] = useState<any>();
+    const [_dataProfile, _setDataProfile] = useState<any>({});
+    const dataProfile = _dataProfile;
 
-    };
-
-    const onAddTitle = () => {
-        setListLink([
-            ...listLink,
-            {
-                id: Number(listLink.length ? listLink[listLink.length - 1].id : 0) + 1,
-                title: null,
-                isURL: false,
-                isShow: false,
-            }
-        ])
-    };
-
-    const onEditTitle = (index: number) => {
-        setListEditAvailable([
-            ...listEditAvailable,
-            index
-        ])
-        if (listEditAvailable.includes(index)) {
-            setListEditAvailable(prev => prev.filter(it => it !== index))
-        }
-        setListLink([
-            ...listLink
-        ]);
-    };
-
-    const onDeleteElement = (id: number) => {
-        setListLink(prev => prev.filter(it => it.id != id))
+    const setDataProfile = (data: any) => {
+        Object.assign(dataProfile, { ...data });
+        _setDataProfile({ ...dataProfile })
     }
+
+    const isValidData = () => {
+        let allRequestOK = true;
+
+        setValidate({ ...validate });
+
+        Object.values(validate).forEach((it: any) => {
+            if (it.isError === true) {
+                allRequestOK = false;
+            }
+        });
+        return allRequestOK;
+    };
+
     const onPreview = () => {
         setIsPreview(!isPreview);
     };
 
     return (
         <MainLayout>
-            <div className='h-full flex-1 overflow-auto'>
+            <div className='customize-link-container h-full flex-1 overflow-auto'>
                 <Row className='link-container scroll-auto'>
                     <Col xs={24} sm={24} lg={16} xl={16}>
-                        <AddLink
-                            selectIndex={selectIndex}
-                            setSelectIndex={setSelectIndex}
-                            listLink={listLink}
-                            setListLink={setListLink}
-                            onAddURL={onAddURL}
-                            onAddTitle={onAddTitle}
-                            listEditAvailable={listEditAvailable}
-                            setListEditAvailable={setListEditAvailable}
-                            onEditTitle={onEditTitle}
-                            onDeleteElement={onDeleteElement}
-                        />
+                        <div className='flex flex-col gap-6 padding-link'>
+                            <InfoProfileComponent
+                                data={dataProfile}
+                                setData={setDataProfile}
+                                validate={validate}
+                                setValidate={setValidate}
+                                submittedTime={submittedTime}
+                            />
+                            <BackgroundComponent
+                                data={dataProfile}
+                                setData={setDataProfile}
+                            />
+                            <ButtonComponent
+                                data={dataProfile}
+                                setData={setDataProfile}
+                                buttonType={buttonType}
+                                setButtonType={setButtonType}
+                            />
+                            <FontComponent
+                                data={dataProfile}
+                                setData={setDataProfile}
+                            />
+                        </div>
                     </Col>
                     <Col xs={24} sm={24} lg={8} xl={8}>
                         <ViewMobile
                             selectIndex={selectIndex}
                             setSelectIndex={setSelectIndex}
                             listLink={listLink}
-                            listEditAvailable={listEditAvailable}
+                            listEditAvailable={[]}
                             isPreview={isPreview}
-                            dataProfile={{}}
-                            buttonType={{}} 
-                            />
+                            dataProfile={dataProfile}
+                            buttonType={buttonType}
+                        />
                     </Col>
                     <div className='preview'>
                         <div
@@ -119,8 +122,6 @@ const LinkTreePage = () => {
                                 </div>
                             }
                         </div>
-
-
                     </div>
                 </Row>
             </div>
@@ -128,4 +129,4 @@ const LinkTreePage = () => {
     )
 }
 
-export default LinkTreePage
+export default CustomizeLinkPage

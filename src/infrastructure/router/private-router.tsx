@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 
 export const PrivateRoute = ({ component: RoutePath }: any) => {
     const storage = isTokenStoraged();
-    const dataProfile = useRecoilValue(ProfileState).user;
+    const dataProfile = useRecoilValue(ProfileState).data;
     // const [isAdmin, setIsAdmin] = useState<boolean>(false)
 
     const isAdmin = dataProfile?.roles?.some((role: any) => role?.name?.includes("ADMIN"));

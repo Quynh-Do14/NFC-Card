@@ -1,50 +1,60 @@
 import { QRCode } from 'antd'
 import React from 'react'
 type Props = {
-    changeImage: string,
     widthScreen: number,
     widthPadding: number,
+    devideGutter: number
     fileUrl: any,
-    infoCard: string,
-    urlLink: string
+    dataCard: any
 }
 const CardComponent = (props: Props) => {
     const {
-        changeImage,
         widthPadding,
         widthScreen,
+        devideGutter,
         fileUrl,
-        infoCard,
-        urlLink
-    } = props
+        dataCard
+    } = props;
+    const maxWidth = 800;
+    const maxHeight = 470;
+
     return (
         <div className="card-container flex justify-center">
             <div className="card"
                 style={{
-                    backgroundImage: `url(${changeImage})`,
-                    backgroundSize: "cover",
-                    width: widthScreen - widthPadding,
-                    height: (widthScreen - widthPadding) / 1.7,
-                    maxWidth: 800,
-                    maxHeight: 470
+                    backgroundImage: `url(${dataCard.backgroundImage})`,
+                    backgroundColor: dataCard.backgroundColor || "#000",
+                    backgroundRepeat: "round",
+                    width: widthScreen / devideGutter - widthPadding,
+                    height: (widthScreen / devideGutter - widthPadding) / 1.7,
+                    maxWidth: maxWidth,
+                    maxHeight: maxHeight,
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
                 }}
             >
-                <div className="card-header">
-                    <img src={fileUrl} alt="" className=' object-cover' />
-                    <div>
-                        <QRCode
-                            value={urlLink || 'http://localhost:3000/'}
-                            bgColor='#FFF'
-                            size={widthScreen > 800 ? 800 / 4.25 : (widthScreen - widthPadding) / 4.25}
-                        />
-                    </div>
-
-                </div>
-                <div className="card-body">
-                    <div className="text-[20px] font-semibold ">{infoCard}</div>
+                <img
+                    src={dataCard.logo}
+                    alt=""
+                    className='object-cover'
+                    style={{
+                        width: widthScreen / devideGutter > maxWidth + widthPadding ? (maxWidth + widthPadding) / 4.25 : ((widthScreen / devideGutter) - widthPadding) / 4.25
+                    }}
+                />
+                <div>
+                    <QRCode
+                        value={dataCard.urlLink || 'http://localhost:3000/'}
+                        color={dataCard.backgroundColorQRCode || "#FFF"}
+                        bordered={false}
+                        size={widthScreen / devideGutter > maxWidth + widthPadding ? (maxWidth + widthPadding) / 4.25 : ((widthScreen / devideGutter) - widthPadding) / 4.25}
+                    />
                 </div>
             </div>
-        </div>
+            {/* <div className="card-body">
+                <div className="text-[20px] font-semibold ">{dataCard.infoCard}</div>
+            </div> */}
+        </div >
     )
 }
 

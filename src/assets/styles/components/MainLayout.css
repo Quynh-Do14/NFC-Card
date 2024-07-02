@@ -76,13 +76,13 @@
 
 
 .main-layout .header .active {
-    border-bottom: 4px #0d9e6d solid;
-    color: #0d9e6d;
+    border-bottom: 4px #1b3f9b solid;
+    color: #1b3f9b;
 }
 
 .main-layout .header .active path,
 .main-layout .header .active circle {
-    stroke: #0d9e6d;
+    stroke: #1b3f9b;
 }
 
 
@@ -105,7 +105,7 @@
     max-width: 280px !important;
     width: 280px !important;
     flex: 1 280px !important;
-    background: #f2f2f0;
+    background: linear-gradient(101deg, #f5c5c5, #cbebef);
     padding: 12px;
 }
 
@@ -137,13 +137,13 @@
 }
 
 .main-layout .sider .menu div.active {
-    border-left: 5px solid #0d9e6d;
+    border-left: 5px solid #1b3f9b;
 }
 
 .main-layout .sider li.ant-menu-item.menu-title:hover {
     border-radius: 0px;
     background: #ffffff;
-    color: #0d9e6d;
+    color: #1b3f9b;
     font-family: Roboto;
     font-size: 15px;
     font-style: normal;
@@ -155,8 +155,8 @@
 
 .main-layout .sider li.ant-menu-item.menu-title.active {
     border-radius: 12px;
-    background: #0d9e6d14;
-    color: #0d9e6d;
+    background: #1b3f9b14;
+    color: #1b3f9b;
     font-size: 15px;
     font-style: normal;
     font-weight: 700;
@@ -171,14 +171,14 @@
 }
 
 .main-layout .sider li.ant-menu-item.menu-title.active:hover {
-    background: #46c198e3;
+    background: #1b3f9b87;
     color: #ffffff;
 }
 
 
 .main-layout .sider li.ant-menu-item.menu-title.active path,
 .main-layout .sider li.ant-menu-item.menu-title.active circle {
-    stroke: #0d9e6d;
+    stroke: #1b3f9b;
 }
 
 
@@ -192,6 +192,9 @@
     text-align: left;
 }
 
+.main-layout .bg-content {
+    background: linear-gradient(230deg, #f1caca, #d1eaed);
+}
 
 .main-layout-client {
     display: flex;

@@ -28,12 +28,12 @@ export default class Constants {
                 </svg>`
             },
             {
-                label: "Hồ sơ",
-                link: ROUTE_PATH.PROFILE,
+                label: "Cấu hình",
+                link: ROUTE_PATH.CUSTOMIZE_LINK,
                 icon: ProfileOutlined,
                 icon2: `<svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="12" cy="6" r="4" stroke="#1C274C" stroke-width="1.5"/>
-                <path d="M19.9975 18C20 17.8358 20 17.669 20 17.5C20 15.0147 16.4183 13 12 13C7.58172 13 4 15.0147 4 17.5C4 19.9853 4 22 12 22C14.231 22 15.8398 21.8433 17 21.5634" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M14.1395 12.0002C14.1395 13.1048 13.2664 14.0002 12.1895 14.0002C11.1125 14.0002 10.2395 13.1048 10.2395 12.0002C10.2395 10.8957 11.1125 10.0002 12.1895 10.0002C13.2664 10.0002 14.1395 10.8957 14.1395 12.0002Z" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M7.57381 18.1003L5.12169 12.8133C4.79277 12.2907 4.79277 11.6189 5.12169 11.0963L7.55821 5.89229C7.93118 5.32445 8.55898 4.98876 9.22644 5.00029H12.1895H15.1525C15.8199 4.98876 16.4477 5.32445 16.8207 5.89229L19.2524 11.0923C19.5813 11.6149 19.5813 12.2867 19.2524 12.8093L16.8051 18.1003C16.4324 18.674 15.8002 19.0133 15.1281 19.0003H9.24984C8.5781 19.013 7.94636 18.6737 7.57381 18.1003Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>`
             },
         ]
@@ -79,17 +79,25 @@ export default class Constants {
 
     static TabSelect = class {
         static List = [
-            { label: "Liên kết", value: 1 },
-            { label: "Thương mại", value: 2 },
+            { label: "Cá nhân", value: 1 },
+            { label: "Gian hàng", value: 2 },
         ]
     }
 
     static ImageCard = class {
         static List = [
-            { label: "", value: card1 },
-            { label: "", value: card2 },
-            { label: "", value: card3 },
-            { label: "", value: card4 },
+            { label: 1, value: card1 },
+            { label: 2, value: card2 },
+            { label: 3, value: card3 },
+            { label: 4, value: card4 },
+            { label: 5, value: card1 },
+            { label: 6, value: card2 },
+            { label: 7, value: card3 },
+            { label: 8, value: card4 },
+            { label: 9, value: card1 },
+            { label: 10, value: card2 },
+            { label: 11, value: card3 },
+            { label: 12, value: card4 },
         ]
     }
 
@@ -105,6 +113,99 @@ export default class Constants {
         static List = [
             { label: "Nam", value: true },
             { label: "Nữ", value: false },
+        ]
+    }
+    static ConfigStyleButton = class {
+        static Fill = class {
+            static value = "Fill";
+            static label = "";
+
+        }
+        static Outline = class {
+            static value = "Outline";
+            static label = "";
+        }
+        static Shadow = class {
+            static value = "Shadow";
+            static label = "";
+        }
+
+        static List = [
+            {
+                id: 1,
+                radius: 0,
+                type: "Fill",
+                shadow: "",
+                border: "",
+                bg: "#1b3f9b",
+            },
+            {
+                id: 2,
+                radius: 8,
+                type: "Fill",
+                shadow: "",
+                border: "",
+                bg: "#1b3f9b",
+            },
+            {
+                id: 3,
+                radius: 20,
+                type: "Fill",
+                shadow: "",
+                border: "",
+                bg: "#1b3f9b",
+            },
+            {
+                id: 4,
+                radius: 0,
+                type: "Outline",
+                shadow: "",
+                border: "1px solid",
+                borderColor: "#1b3f9b",
+                bg: "",
+            },
+            {
+                id: 5,
+                radius: 8,
+                type: "Outline",
+                shadow: "",
+                border: "1px solid",
+                borderColor: "#1b3f9b",
+                bg: "",
+            },
+            {
+                id: 6,
+                radius: 20,
+                type: "Outline",
+                shadow: "",
+                border: "1px solid",
+                borderColor: "#1b3f9b",
+                bg: "",
+            },
+            {
+                id: 7,
+                radius: 0,
+                type: "Shadow",
+                shadow: "rgba(0, 0, 0, 0.16) 4px 6px 6px 0px",
+                border: "",
+                bg: ""
+            },
+            {
+                id: 8,
+                radius: 8,
+                type: "Shadow",
+                shadow: "rgba(0, 0, 0, 0.16) 4px 6px 6px 0px",
+                border: "",
+                bg: ""
+            },
+            {
+                id: 9,
+                radius: 20,
+                type: "Shadow",
+                shadow: "rgba(0, 0, 0, 0.16) 4px 6px 6px 0px",
+                border: "",
+                bg: ""
+            },
         ]
     }
 };

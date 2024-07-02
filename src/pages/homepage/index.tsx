@@ -1,23 +1,27 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Constants from '../../core/common/constants'
-import { Col, QRCode, Row } from 'antd'
-import UploadFileCommon from '../../infrastructure/common/components/input/upload-file';
-import { InputCommon } from '../../infrastructure/common/components/input/input-text-common';
+import { Col, Row } from 'antd'
 import MainLayout from '../../infrastructure/common/Layouts/Main-Layout';
-import UploadBackgroundImage from '../../infrastructure/common/components/input/upload-bg-image';
 import CardComponent from './components/card';
 import InfoComponent from './components/info';
 import ListImageBGComponent from './components/list-img-bg';
+import BackgroundComponent from './components/background';
 
 const HomePage = () => {
     const [listImg, setListImg] = useState<Array<any>>(Constants.ImageCard.List);
-    const [changeImage, setChangeImg] = useState<string>(listImg[0]?.value);
-    const [file, setFile] = useState<any>();
-    const [fileUrl, setFileUrl] = useState<string>("");
-    const [urlLink, setUrlLink] = useState<string>("");
-    const [infoCard, setInfoCard] = useState<string>("");
     const [widthScreen, setWidthScreen] = useState<number>(window.innerWidth);
     const [widthPadding, setWidthPadding] = useState<number>(0)
+    const [devideGutter, setDevideGutter] = useState<number>(0)
+    const [fileUrl, setFileUrl] = useState<string>("");
+
+    const [_dataCard, _setDataCard] = useState<any>({});
+    const dataCard = _dataCard;
+
+    const setDataCard = (data: any) => {
+        Object.assign(dataCard, { ...data });
+        _setDataCard({ ...dataCard })
+    }
+
     useEffect(() => {
 
         const handleResize = () => setWidthScreen(window.innerWidth);
@@ -32,48 +36,52 @@ const HomePage = () => {
         else {
             setWidthPadding(32);
         }
+
+        if (widthScreen < 768) {
+            setDevideGutter(1)
+        }
+        else {
+            setDevideGutter(2)
+        }
     }, [widthScreen]);
-
-    const onChangeImg = (img: string) => {
-        setChangeImg(img);
-    }
-    useEffect(() => {
-        setChangeImg(listImg[0]?.value);
-    }, [listImg]);
-
-    const onChangUrlLink = (e: any) => {
-        setUrlLink(e.target.value)
-    }
-
-    const onChangInfoCard = (e: any) => {
-        setInfoCard(e.target.value)
-    }
 
     return (
         <MainLayout>
-            <div className='bg-[#FFFFFF] h-full rounded-[16px] flex flex-col gap-6 overflow-auto p-4 md:px-16 md:py-4 lg:py-4 lg:px-12'>
-                <CardComponent
-                    changeImage={changeImage}
-                    widthScreen={widthScreen}
-                    widthPadding={widthPadding}
-                    fileUrl={fileUrl}
-                    infoCard={infoCard}
-                    urlLink={urlLink}
-                />
-                <ListImageBGComponent
-                    listImg={listImg}
-                    setChangeImg={setChangeImg}
-                    setListImg={setListImg}
-                    onChangeImg={onChangeImg}
-                />
-                <InfoComponent
-                    urlLink={urlLink}
-                    onChangUrlLink={onChangUrlLink}
-                    infoCard={infoCard}
-                    onChangInfoCard={onChangInfoCard}
-                    setFile={setFile}
-                    setFileUrl={setFileUrl}
-                />
+            <div className='border-[1px] border-[#ffffff] h-full rounded-[16px] flex flex-col gap-6 overflow-auto p-4'>
+                <div className='py-3 border-b-[2px] border-t-[2px] border-[#f2f2f0]'>
+                    <div className='text-[24px] font-bold uppercase text-center'>Thiết kế thẻ</div>
+                </div>
+                <Row gutter={[20, 20]}>
+                    <Col xs={24} sm={24} md={12} lg={12}>
+                        <div className='bg-[#ffffff] shadow-sm border-[1px] border-[#f2f2f0] rounded-[20px] p-4 flex flex-col gap-8'>
+                            <CardComponent
+                                widthScreen={widthScreen}
+                                widthPadding={widthPadding}
+                                devideGutter={devideGutter}
+                                fileUrl={fileUrl}
+                                dataCard={dataCard}
+                            />
+                        </div>
+                    </Col>
+                    <Col xs={24} sm={24} md={12} lg={12}>
+                        <div className='flex flex-col gap-6'>
+                            <InfoComponent
+                                dataCard={dataCard}
+                                setDataCard={setDataCard}
+                            />
+                            <BackgroundComponent
+                                dataCard={dataCard}
+                                setDataCard={setDataCard}
+                            />
+                            <ListImageBGComponent
+                                listImg={listImg}
+                                setListImg={setListImg}
+                                dataCard={dataCard}
+                                setDataCard={setDataCard}
+                            />
+                        </div>
+                    </Col>
+                </Row>
             </div >
         </MainLayout >
     )
