@@ -3,28 +3,25 @@ import "../../../../assets/styles/components/button.css"
 type Props = {
     classColor: "blue" | "gradient" | "grey" | "black" | "orange" | "green",
     onClick: Function,
-    icon?: any,
+    htmlFor?: any,
     title: string,
-    disabled?: boolean
 }
-export const ButtonCommon = (props: Props) => {
+export const ButtonLabelCommon = (props: Props) => {
     const {
         classColor,
         onClick,
-        icon,
+        htmlFor,
         title,
-        disabled = false
     } = props;
     return (
         <div className='button-common'>
-            <Button
+            <label
+                htmlFor={htmlFor}
                 className={classColor}
                 onClick={() => onClick()}
-                icon={icon}
-                disabled={disabled}
             >
                 {title}
-            </Button>
+            </label>
         </div>
     )
 }

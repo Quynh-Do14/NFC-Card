@@ -46,7 +46,7 @@ const ShopViewComponent = (props: Props) => {
         buttonType
     } = props;
     const colorTextBtn = dataProfile?.colorTextBtn
-    const bgBtn = dataProfile?.bgBtn
+    const buttonColor = dataProfile?.buttonColor
 
     return (
         <div className='flex flex-col gap-6'>
@@ -55,9 +55,13 @@ const ShopViewComponent = (props: Props) => {
                     dataFake.map((it, index) => {
                         return (
                             <Col xs={24} sm={12} md={8} lg={24} xl={12} key={index} className='shop-view-product-container'>
-                                <div className='flex flex-col gap-3 h-full rounded-[16px] p-1 shadow-md cursor-pointer'
+                                <div className='flex flex-col gap-3 h-full rounded-[16px] p-1 cursor-pointer'
                                     style={{
-                                        background: buttonType.type == Constants.ConfigStyleButton.Outline.value ? "#FFF" : bgBtn
+                                        background: buttonType.type == Constants.ConfigStyleButton.Outline.value ? "#FFF" : buttonColor,
+                                        border: buttonType.border,
+                                        borderColor: buttonType.type == Constants.ConfigStyleButton.Outline.value ? dataProfile.buttonColor : buttonType.backgroundColor || "#000",
+                                        boxShadow: buttonType.shadow || "rgba(0, 0, 0, 0.16) 4px 6px 6px 0px",
+                                        borderRadius: buttonType.radius,
                                     }}
                                 >
                                     <img src={it.img} alt="" className='rounded-t-[16px]' />

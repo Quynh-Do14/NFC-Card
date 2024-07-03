@@ -58,13 +58,13 @@ const ButtonComponent = (props: Props) => {
             </div>
             <ColorPickerCommon
                 label={'Màu nền'}
-                attribute={"bgBtn"}
+                attribute={"buttonColor"}
                 setData={setData}
-                dataAttribute={data.bgBtn}
+                dataAttribute={data.buttonColor}
                 disabled={false}
             />
             <ColorPickerCommon
-                label={'Màu chữ'}
+                label={'Màu chữ trong nút'}
                 attribute={"colorTextBtn"}
                 setData={setData}
                 dataAttribute={data.colorTextBtn}

@@ -32,14 +32,14 @@ const ViewMobile = (props: Props) => {
     const setSelectTab = (value: number) => {
         setSelectIndex(value)
     }
-    const bgColor = dataProfile.bg;
+    const backgroundColor = dataProfile.backgroundColor;
     const fontColor = dataProfile.fontColor
 
     return (
         <div className='mobile-screen flex justify-center items-center'>
             <div className={`${isPreview ? "up" : "down"} mobile-screen-container border-4 border-[#FFF] overflow-auto shadow-xl`}
                 style={{
-                    background: bgColor || "#FFF"
+                    background: backgroundColor || "#FFF"
                 }}
             >
                 <div className='scroll-auto flex flex-col items-center gap-6 px-4 py-8'>
@@ -60,7 +60,7 @@ const ViewMobile = (props: Props) => {
                                     return (
                                         <div
                                             key={index}
-                                            className={`${selectIndex == it.value ? "active" : "inactive"} px-6 py-3 w-[120px] text-center rounded-[20px] cursor-pointer`}
+                                            className={`${selectIndex == it.value ? "active" : "inactive"} tab px-6 py-3 w-[120px] text-center rounded-[20px] cursor-pointer`}
                                             onClick={() => setSelectTab(it.value)}
                                         >
                                             <div className='text-[13px] font-semibold'>{it.label} </div>

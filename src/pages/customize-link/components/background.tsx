@@ -14,9 +14,9 @@ const BackgroundComponent = (props: Props) => {
             <div className="text-[18px] text-[#1e2330] font-semibold">Màu sắc nền</div>
             <ColorPickerCommon
                 label={'Màu nền'}
-                attribute={"bg"}
+                attribute={"backgroundColor"}
                 setData={setData}
-                dataAttribute={data.bg}
+                dataAttribute={data.backgroundColor}
                 disabled={false}
             />
 

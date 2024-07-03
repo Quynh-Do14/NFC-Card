@@ -14,6 +14,7 @@ type Props = {
     setListEditAvailable: Function,
     onEditTitle: Function,
     onDeleteElement: Function,
+    onReState: Function
 }
 const AddLink = (props: Props) => {
     const {
@@ -27,9 +28,11 @@ const AddLink = (props: Props) => {
         setListEditAvailable,
         onEditTitle,
         onDeleteElement,
+        onReState
     } = props;
     const [validate, setValidate] = useState<any>({});
     const [loading, setLoading] = useState<boolean>(false);
+    const [idSelectOption, setIdSelectOption] = useState<number>(-1);
     const [submittedTime, setSubmittedTime] = useState<any>();
     const [_dataShop, _setDataShop] = useState<any>({});
     const dataShop = _dataShop;
@@ -84,7 +87,7 @@ const AddLink = (props: Props) => {
                                     return (
                                         <div
                                             key={index}
-                                            className={`${selectIndex == it.value ? "active" : "un-active"} px-6 py-3 w-[130px] text-center rounded-[20px] cursor-pointer`}
+                                            className={`${selectIndex == it.value ? "active" : "un-active"} tab px-6 py-3 w-[130px] text-center rounded-[20px] cursor-pointer`}
                                             onClick={() => setSelectIndex(it.value)}
                                         >
                                             <div className='text-[14px] font-semibold'>{it.label} </div>
@@ -106,6 +109,9 @@ const AddLink = (props: Props) => {
                             setListEditAvailable={setListEditAvailable}
                             onEditTitle={onEditTitle}
                             onDeleteElement={onDeleteElement}
+                            idSelectOption={idSelectOption}
+                            setIdSelectOption={setIdSelectOption}
+                            onReState={onReState}
                         />
                     </div>
                     <div className={`tab-pane ${selectIndex == 2 ? "activate" : "inactivate"}`}>

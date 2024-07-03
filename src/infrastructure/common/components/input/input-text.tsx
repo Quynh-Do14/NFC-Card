@@ -99,7 +99,7 @@ const InputTextCommon = (props: Props) => {
                         onBlur={() => onBlur(false)}
                         onFocus={handleFocus}
                         disabled={disabled}
-                        className={`${validate[attribute]?.isError ? "input-error" : ""}`}
+                        className={`${validate[attribute]?.isError ? "input-error" : ""} w-full`}
                         onPressEnter={handlePressEnter}
                     />
                     <MessageError isError={validate[attribute]?.isError || false} message={validate[attribute]?.message || ""} />

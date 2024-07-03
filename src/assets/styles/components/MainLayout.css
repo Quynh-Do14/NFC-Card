@@ -105,7 +105,8 @@
     max-width: 280px !important;
     width: 280px !important;
     flex: 1 280px !important;
-    background: linear-gradient(101deg, #f5c5c5, #cbebef);
+    /* background: linear-gradient(101deg, #f5c5c5, #cbebef); */
+    background: #F2F2F2;
     padding: 12px;
 }
 
@@ -193,7 +194,8 @@
 }
 
 .main-layout .bg-content {
-    background: linear-gradient(230deg, #f1caca, #d1eaed);
+    /* background: linear-gradient(230deg, #f1caca, #d1eaed); */
+    background: #F2F2F2;
 }
 
 .main-layout-client {

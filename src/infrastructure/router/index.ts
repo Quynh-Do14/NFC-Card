@@ -1,14 +1,19 @@
 import { ROUTE_PATH } from "../../core/common/appRouter";
 import CustomizeLinkPage from "../../pages/customize-link";
-import HomePage from "../../pages/homepage";
+import CustomCardPage from "../../pages/homepage";
 import LinkTreePage from "../../pages/link";
+import MainLayout from "../common/Layouts/Main-Layout";
 
 
 export const privateRoutes = [
-
+    {
+        path: ROUTE_PATH.HOME_PAGE,
+        component: MainLayout,
+        private: false,
+    },
     {
         path: ROUTE_PATH.CUSTOM_CARD,
-        component: HomePage,
+        component: CustomCardPage,
         private: false,
     },
     {

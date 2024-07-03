@@ -29,7 +29,7 @@ const ListImageBGComponent = (props: Props) => {
             <div className="text-[18px] text-[#1e2330] font-semibold">Chọn ảnh nền</div>
             <div className='bg-[#ffffff] p-4'>
                 <Row gutter={[10, 10]}>
-                    <Col xs={12} sm={12} lg={12} xl={8} xxl={6} >
+                    <Col span={24} className='p-1'>
                         <UploadBackgroundImage
                             setFile={() => { }}
                             setDataCard={setDataCard}
@@ -42,7 +42,7 @@ const ListImageBGComponent = (props: Props) => {
                     {listImg.map((it, index) => {
                         return (
                             <Col xs={12} sm={12} lg={12} xl={8} xxl={6} key={index}>
-                                <div className={`${dataCard.backgroundImageId == it.label ? "bg-[#cbe5fe]" : ""} p-2 rounded-[8px]`}>
+                                <div className={`${dataCard.backgroundImageId == it.label ? "bg-[#cbe5fe]" : ""} p-1 rounded-[8px]`}>
                                     < div
                                         onClick={() => onChange(it)}
                                         className='border-[1px] rounded-[8px] border-[#d3d3d3] cursor-pointer flex justify-center items-center overflow-hidden w-full h-full'

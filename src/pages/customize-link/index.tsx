@@ -59,7 +59,7 @@ const CustomizeLinkPage = () => {
         <MainLayout>
             <div className='customize-link-container h-full flex-1 overflow-auto'>
                 <Row className='link-container scroll-auto'>
-                    <Col xs={24} sm={24} lg={16} xl={16}>
+                    <Col xs={24} sm={24} lg={16} xl={16} className='sm:mt-0 lg:mt-20'>
                         <div className='flex flex-col gap-6 padding-link'>
                             <InfoProfileComponent
                                 data={dataProfile}

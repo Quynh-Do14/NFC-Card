@@ -37,7 +37,6 @@ function UploadImage(props: Props) {
     } = props;
     const [value, setValue] = useState<string>("")
     const handleChange = (event: any) => {
-        console.log("event", event);
         getBase64(event.target.files[0], (url: any) => {
             setImageUrl({
                 [attribute]: url || ''
@@ -73,7 +72,7 @@ function UploadImage(props: Props) {
     return (
         <div className={`file-upload ${value ? "active" : ""}`}>
             <div className="file-select">
-                <div className="file-select-button" id="fileName">Chọn Logo</div>
+                <div className="file-select-button" id="fileName">{label}</div>
                 <div className="file-select-name" id="noFile">{value ? value : " Chưa chọn ảnh"}</div>
                 <input type="file" name="chooseFile" id="chooseFile" onChange={handleChange} />
             </div>

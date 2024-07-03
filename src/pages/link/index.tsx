@@ -26,8 +26,10 @@ const LinkTreePage = () => {
                 content: null,
                 isURL: true,
                 isShow: false,
+                thumbnail: {},
+                thumbnailURL: null
             }
-        ])
+        ]);
 
     };
 
@@ -40,7 +42,7 @@ const LinkTreePage = () => {
                 isURL: false,
                 isShow: false,
             }
-        ])
+        ]);
     };
 
     const onEditTitle = (index: number) => {
@@ -49,19 +51,25 @@ const LinkTreePage = () => {
             index
         ])
         if (listEditAvailable.includes(index)) {
-            setListEditAvailable(prev => prev.filter(it => it !== index))
+            setListEditAvailable(prev => prev.filter(it => it !== index));
         }
         setListLink([
             ...listLink
         ]);
     };
 
+    const onReState = () => {
+        setListLink([
+            ...listLink
+        ]);
+    }
     const onDeleteElement = (id: number) => {
-        setListLink(prev => prev.filter(it => it.id != id))
+        setListLink(prev => prev.filter(it => it.id != id));
     }
     const onPreview = () => {
         setIsPreview(!isPreview);
     };
+    console.log("listLink", listLink);
 
     return (
         <MainLayout>
@@ -79,6 +87,7 @@ const LinkTreePage = () => {
                             setListEditAvailable={setListEditAvailable}
                             onEditTitle={onEditTitle}
                             onDeleteElement={onDeleteElement}
+                            onReState={onReState}
                         />
                     </Col>
                     <Col xs={24} sm={24} lg={8} xl={8}>
@@ -89,8 +98,8 @@ const LinkTreePage = () => {
                             listEditAvailable={listEditAvailable}
                             isPreview={isPreview}
                             dataProfile={{}}
-                            buttonType={{}} 
-                            />
+                            buttonType={{}}
+                        />
                     </Col>
                     <div className='preview'>
                         <div
@@ -119,8 +128,6 @@ const LinkTreePage = () => {
                                 </div>
                             }
                         </div>
-
-
                     </div>
                 </Row>
             </div>

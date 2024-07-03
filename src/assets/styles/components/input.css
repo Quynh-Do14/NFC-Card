@@ -133,9 +133,15 @@
   box-shadow: none !important;
 }
 
-.upload-common .ant-upload {
+.upload-common .card .ant-upload {
   background-color: white;
   border: 3px solid #0d9e6d;
+}
+
+.upload-common .circle .ant-upload {
+  background-color: white;
+  border: 3px solid #0d9e6d;
+  border-radius: 50%;
 }
 
 .upload-common .ant-upload-wrapper.ant-upload-picture-card-wrapper .ant-upload.ant-upload-select {
@@ -177,12 +183,12 @@
 }
 
 .file-upload .file-select {
-  display: block;
+  display: flex;
   border: 2px solid #dce4ec;
   color: #34495e;
   cursor: pointer;
-  height: 40px;
-  line-height: 40px;
+  height: 60px;
+  line-height: 60px;
   text-align: left;
   background: #FFFFFF;
   overflow: hidden;
@@ -194,14 +200,14 @@
   background: #dce4ec;
   padding: 0 10px;
   display: inline-block;
-  height: 40px;
-  line-height: 40px;
+  /* height: 60px; */
+  /* line-height: 60px; */
   font-size: 14px;
   font-weight: 500;
 }
 
 .file-upload .file-select .file-select-name {
-  line-height: 40px;
+  line-height: 60px;
   display: inline-block;
   padding: 0 10px;
   font-size: 14px;
@@ -264,8 +270,8 @@
   border: 2px solid #dce4ec;
   color: #34495e;
   cursor: pointer;
-  height: 40px;
-  line-height: 40px;
+  height: 60px;
+  line-height: 60px;
   margin-top: 5px;
   text-align: left;
   background: #FFFFFF;
@@ -278,12 +284,12 @@
   color: #666666;
   padding: 0 10px;
   display: inline-block;
-  height: 40px;
-  line-height: 40px;
+  height: 60px;
+  line-height: 60px;
 }
 
 .file-upload .file-select.file-select-disabled:hover .file-select-name {
-  line-height: 40px;
+  line-height: 60px;
   display: inline-block;
   padding: 0 10px;
 }

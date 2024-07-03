@@ -129,13 +129,13 @@
     border: none;
 }
 
-.link-container .active {
+.link-container .tab.active {
     background: #252525;
     color: #FFF;
     transition: background-color 0.3s;
 }
 
-.link-container .un-active {
+.link-container .tab.un-active {
     background: #FFF;
     color: #252525;
 }
@@ -169,11 +169,46 @@
     transition: 0.3s;
 }
 
+.link-container .add-link-container {
+    position: relative;
+}
+
+.link-container .add-link-container .show-more-option {
+    transform: translateY(100%);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.link-container .add-link-container .show-more-option.show {
+    opacity: 1;
+    position: relative;
+    height: 100%;
+    bottom: 0;
+    transform: translateY(0);
+}
+
+.link-container .add-link-container .show-more-option.un-show {
+    opacity: 0;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    right: 0;
+    left: 0;
+    transform: translateY(100%);
+}
+
+.link-container .add-link-container .expand-icon {
+    transition: transform 0.5s;
+}
+
+.link-container .add-link-container .expand-icon.open {
+    transform: rotate(180deg);
+}
+
 @media only screen and (min-width: 1600px) {
 
     .customize-link-container .padding-link,
     .link-container .padding-link {
-        padding: 0 120px;
+        padding: 0 150px;
     }
 
     .link-container .mobile-screen .mobile-screen-container {
@@ -186,7 +221,7 @@
 
     .customize-link-container .padding-link,
     .link-container .padding-link {
-        padding: 0 80px;
+        padding: 0 100px;
     }
 
     .link-container .mobile-screen .mobile-screen-container {
@@ -199,7 +234,7 @@
 
     .customize-link-container .padding-link,
     .link-container .padding-link {
-        padding: 0 40px;
+        padding: 0 60px;
     }
 
     .link-container .mobile-screen .mobile-screen-container {
@@ -228,7 +263,7 @@
 
     .customize-link-container .padding-link,
     .link-container .padding-link {
-        padding: 0px 20px 80px;
+        padding: 0px 100px 80px;
     }
 
     .link-container {
@@ -269,35 +304,51 @@
 
 }
 
-.card {
+@media only screen and (max-width: 768px) {
+
+    .customize-link-container .padding-link,
+    .link-container .padding-link {
+        padding: 0px 50px 80px;
+    }
+
+}
+
+@media only screen and (max-width: 425px) {
+
+    .customize-link-container .padding-link,
+    .link-container .padding-link {
+        padding: 0px 20px 80px;
+    }
+
+}
+
+.card-container {
+    position: relative;
+}
+
+.card-container .card .card-face {
+    /* position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0; */
+    backface-visibility: hidden;
+    padding: 32px;
+    transition: transform 0.8s ease-in-out;
+    transform-style: preserve-3d;
     border-radius: 15px;
-    color: #fff;
-    padding: 24px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
 }
 
-.card:hover {
-    transform: scale(1.02);
+
+.card-container .card .card-face.up {
+    transform: rotateY(0deg);
 }
 
-.card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.card-container .card .card-face.down {
+    transform: rotateY(-180deg);
+    position: absolute;
+    top: 0;
 }
-
-.bank-logo {
-    width: 50px;
-    height: auto;
-}
-
-.card-number {
-    font-size: 1.5em;
-    letter-spacing: 2px;
-    margin-bottom: 10px;
-}
-
 
 .qr-code {
     width: 80px;

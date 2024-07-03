@@ -44,9 +44,9 @@ const InfoComponent = (props: Props) => {
                             submittedTime={null}
                         />
                     </Col>
-                    <Col>
+                    {/* <Col>
                         <UploadImage
-                            label={''}
+                            label={'Logo'}
                             attributeImg={dataCard.logo}
                             setAvatar={() => { }}
                             imageUrl={undefined}
@@ -57,7 +57,7 @@ const InfoComponent = (props: Props) => {
                             attribute={'logo'}
                             isRequired={false}
                         />
-                    </Col>
+                    </Col> */}
                 </Row>
             </div>
         </div>

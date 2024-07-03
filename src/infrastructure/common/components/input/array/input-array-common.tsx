@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Input } from 'antd';
 import "../../../../../assets/styles/components/input.css"
-import { validateFields } from '../../../../helper/helper';
-import { MessageError } from '../../controls/MessageError';
 type Props = {
     label: string,
     attribute: string,
@@ -27,20 +25,44 @@ const InputArrayTextCommon = (props: Props) => {
         maxLength,
         handlePressEnter
     } = props;
-    const [value, setValue] = useState("");
+    const [value, setValue] = useState<string>("");
 
-    const onChange = (e: any) => {
+    const onChangeTextCommon = (attribute: any, check: boolean) => {
         setData((prev: Array<any>) => {
             prev[index] = {
                 ...prev[index],
-                [attribute]: e.target.value || null,
+                [attribute]: check,
             }
             return prev;
         });
+    }
+
+    const onChange = (e: any) => {
+        onChangeTextCommon(attribute, e.target.value || null)
         setValue(e.target.value || null);
     };
 
     let labelLower = label.toLowerCase();
+
+    useEffect(() => {
+        if (data[index].isURL) {
+            if (data[index].title == null || data[index].content == null) {
+                onChangeTextCommon("isShow", false);
+            }
+            else if (data[index].title != null && data[index].content != null) {
+                onChangeTextCommon("isShow", true);
+            }
+        }
+        else {
+            if (data[index].title == null) {
+                onChangeTextCommon("isShow", false);
+            }
+            else {
+                onChangeTextCommon("isShow", true);
+            }
+        }
+
+    }, [data[index]]);
 
     useEffect(() => {
         if (data[index]) {
