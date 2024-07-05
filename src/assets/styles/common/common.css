@@ -346,23 +346,33 @@
 } */
 
 .card-container {
-    perspective: 600px;
+    perspective: 900px;
+
 }
 
 .card-container .card {
+    perspective: 900px;
     position: relative;
-    transform-style: preserve-3d;
     transition: transform 3s;
+}
+
+.card-container .card.animate .card-rotate {
     animation: flip 10s linear infinite;
 }
 
-.card-container .card .face {
+.card-container .card .card-rotate {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.3s;
+}
+
+.card-container .card .card-rotate .face {
     padding: 32px;
     border-radius: 15px;
     backface-visibility: hidden;
 }
 
-/* .card-container .card .face::before {
+/* .card-container .card .card-rotate .face::before {
     content: "";
     position: absolute;
     top: 0;
@@ -375,7 +385,7 @@
     transform: rotateY(63deg);
 } */
 
-.card-container .card .face.back {
+.card-container .card .card-rotate .face.back {
     transform: rotateY(180deg);
     position: absolute;
     top: 0;

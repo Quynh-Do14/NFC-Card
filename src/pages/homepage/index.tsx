@@ -13,6 +13,7 @@ const CustomCardPage = () => {
     const [widthPadding, setWidthPadding] = useState<number>(0)
     const [devideGutter, setDevideGutter] = useState<number>(0)
     const [fileUrl, setFileUrl] = useState<string>("");
+    const [isDragging, setIsDragging] = useState<boolean>(false);
 
     const [_dataCard, _setDataCard] = useState<any>({});
     const dataCard = _dataCard;
@@ -45,9 +46,15 @@ const CustomCardPage = () => {
         }
     }, [widthScreen]);
 
+    const onMouseUp = () => {
+        setIsDragging(false);
+    }
+
     return (
         <MainLayout>
-            <div className='border-[1px] border-[#ffffff] h-full rounded-[16px] flex flex-col gap-2 overflow-auto p-4'>
+            <div
+                onMouseUp={onMouseUp}
+                className='border-[1px] border-[#ffffff] h-full rounded-[16px] flex flex-col gap-2 overflow-auto p-4'>
                 <div className='py-3 border-b-[2px] border-t-[2px] border-[#f2f2f0]'>
                     <div className='text-[24px] font-bold uppercase text-center'>Thiết kế thẻ</div>
                 </div>
@@ -60,6 +67,8 @@ const CustomCardPage = () => {
                                 devideGutter={devideGutter}
                                 fileUrl={fileUrl}
                                 dataCard={dataCard}
+                                isDragging={isDragging}
+                                setIsDragging={setIsDragging}
                             />
                         </div>
                     </Col>
