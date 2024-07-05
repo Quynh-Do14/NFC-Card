@@ -26,7 +26,7 @@ const CardComponent = (props: Props) => {
     return (
         <div className="card-container flex flex-col items-center justify-center gap-2">
             <div className='card'>
-                <div className={`card-face ${isFrstFace ? "up" : "down"}`}
+                <div className={`face front`}
                     style={{
                         backgroundImage: `url(${dataCard.backgroundImage})`,
                         backgroundColor: dataCard.backgroundColor || "#000",
@@ -57,9 +57,7 @@ const CardComponent = (props: Props) => {
                         />
                     </div>
                 </div>
-
-
-                <div className={`card-face ${isFrstFace ? "down" : "up"}`}
+                <div className={`face back`}
                     style={{
                         backgroundImage: `url(${dataCard.backgroundImage})`,
                         backgroundColor: dataCard.backgroundColor || "#000",
@@ -95,14 +93,14 @@ const CardComponent = (props: Props) => {
                     </div>
                 </div>
             </div>
-            <ButtonCommon
+            {/* <ButtonCommon
                 classColor={'black'}
                 onClick={onRotate}
                 title={"Xoay thẻ"}
                 icon={
                     <svg fill="#FFF" width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21.707,11.293a1,1,0,0,1,0,1.414l-4,4a1,1,0,0,1-1.414-1.414L19.586,12,16.293,8.707a1,1,0,1,1,1.414-1.414ZM7,17a1,1,0,0,0,.707-1.707L4.414,12,7.707,8.707A1,1,0,1,0,6.293,7.293l-4,4a1,1,0,0,0,0,1.414l4,4A1,1,0,0,0,7,17Z" /></svg>
                 }
-            />
+            /> */}
         </div >
     )
 }
