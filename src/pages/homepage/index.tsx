@@ -12,7 +12,6 @@ const CustomCardPage = () => {
     const [widthScreen, setWidthScreen] = useState<number>(window.innerWidth);
     const [widthPadding, setWidthPadding] = useState<number>(0)
     const [devideGutter, setDevideGutter] = useState<number>(0)
-    const [fileUrl, setFileUrl] = useState<string>("");
     const [isDragging, setIsDragging] = useState<boolean>(false);
 
     const [_dataCard, _setDataCard] = useState<any>({});
@@ -65,7 +64,6 @@ const CustomCardPage = () => {
                                 widthScreen={widthScreen}
                                 widthPadding={widthPadding}
                                 devideGutter={devideGutter}
-                                fileUrl={fileUrl}
                                 dataCard={dataCard}
                                 isDragging={isDragging}
                                 setIsDragging={setIsDragging}

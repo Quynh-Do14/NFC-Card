@@ -1,9 +1,5 @@
 import { Col, Row } from 'antd'
-import React from 'react'
-import { InputCommon } from '../../../infrastructure/common/components/input/input-text-common'
-import UploadFileCommon from '../../../infrastructure/common/components/input/upload-file'
 import InputTextCommon from '../../../infrastructure/common/components/input/input-text'
-import UploadImage from '../../../infrastructure/common/components/input/upload-image'
 type Props = {
     dataCard: any
     setDataCard: Function,
@@ -44,20 +40,6 @@ const InfoComponent = (props: Props) => {
                             submittedTime={null}
                         />
                     </Col>
-                    {/* <Col>
-                        <UploadImage
-                            label={'Logo'}
-                            attributeImg={dataCard.logo}
-                            setAvatar={() => { }}
-                            imageUrl={undefined}
-                            setImageUrl={setDataCard}
-                            validate={{}}
-                            setValidate={() => { }}
-                            submittedTime={null}
-                            attribute={'logo'}
-                            isRequired={false}
-                        />
-                    </Col> */}
                 </Row>
             </div>
         </div>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import MainLayout from '../../infrastructure/common/Layouts/Main-Layout'
 import ViewMobile from '../view-moblie/view'
 import { Col, Row } from 'antd'
@@ -20,6 +20,15 @@ const listLink = [
         content: "https://www.youtube.com/watch?v=DZDYZ9nRHfU&list=RDkNPX8folSyo&index=5",
         isURL: true,
         isShow: true,
+        layout: 1
+    },
+    {
+        id: 3,
+        title: "Senior Front-End Developer",
+        content: "https://www.youtube.com/watch?v=DZDYZ9nRHfU&list=RDkNPX8folSyo&index=5",
+        isURL: true,
+        isShow: true,
+        layout: 2
     },
 ]
 const CustomizeLinkPage = () => {

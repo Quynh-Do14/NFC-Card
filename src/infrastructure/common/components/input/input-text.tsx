@@ -14,6 +14,7 @@ type Props = {
     validate: any,
     setValidate: Function,
     submittedTime: any,
+    autoFocus?: boolean
     handlePressEnter?: () => void,
 }
 const InputTextCommon = (props: Props) => {
@@ -27,6 +28,7 @@ const InputTextCommon = (props: Props) => {
         validate,
         setValidate,
         submittedTime,
+        autoFocus,
         handlePressEnter
     } = props;
     const [value, setValue] = useState<string>("");
@@ -93,6 +95,7 @@ const InputTextCommon = (props: Props) => {
                 </div>
                 <div>
                     <Input
+                        autoFocus={autoFocus}
                         size={"middle"}
                         value={value ? value : ""}
                         onChange={onChange}

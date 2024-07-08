@@ -66,9 +66,10 @@
 }
 
 .input-common.focused input.ant-input.ant-input-outlined,
-.input-common.focused input.ant-input,
+/* .input-common.focused input.ant-input, */
 .input-common.focused .ant-input-number,
-.input-common.focused .ant-picker {
+.input-common.focused .ant-picker,
+.input-common.focused span.ant-input-affix-wrapper.ant-input-outlined.ant-input-password {
   /* border-top: 1px solid #72b6f6;
   border-left: 1px solid #1890ff;
   border-right: 1px solid #1890ff; */

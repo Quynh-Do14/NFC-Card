@@ -1,6 +1,6 @@
 import { Col, Layout, Menu, Row, } from 'antd';
 import { useEffect, useState } from 'react';
-import "../../../assets/styles/components/MainLayout.css";
+import "../../../assets/styles/page/MainLayout.css";
 import { ROUTE_PATH } from '../../../core/common/appRouter';
 import authService from '../../repositories/auth/service/auth.service';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
@@ -9,6 +9,7 @@ import DialogConfirmCommon from '../components/modal/dialogConfirm';
 import Constants from '../../../core/common/constants';
 import { ProfileState } from '../../../core/atoms/profile/profileState';
 import { isTokenStoraged } from '../../utils/storage';
+import avatar from "../../../assets/images/avatar.png"
 
 const { Content, Sider } = Layout;
 
@@ -82,7 +83,7 @@ const MainLayout = ({ ...props }: any) => {
                         {Constants.Menu.List.map((item: any, index: number) => {
                             return (
                                 <Col
-                                    span={8}
+                                    span={6}
                                     key={index}
                                     className={`flex flex-col items-center gap-2 cursor-pointer text-[15px] whitespace-nowrap text-[#1e293bb3] font-semibold capitalize px-6 pt-5 pb-2 ${location.pathname.includes(item.link) && "active"}`}
                                 // onClick={() => navigate(item.link)}
@@ -95,11 +96,22 @@ const MainLayout = ({ ...props }: any) => {
                                 </Col>
                             )
                         })}
+                        <Col
+                            span={6}
+                            className={`flex flex-col items-center gap-2 cursor-pointer text-[15px] whitespace-nowrap text-[#1e293bb3] font-semibold capitalize px-6 pt-5 pb-2 ${location.pathname.includes("profile") && "active"}`}
+                        // onClick={() => navigate(item.link)}
+                        >
+                            <img src={avatar} alt="" width={40} height={40} />
+                            {/* <item.icon style={{ fontSize: 22 }} /> */}
+                            {/* <a>
+                                @QuynhDo
+                            </a> */}
+                        </Col>
                     </Row>
                 </div>
                 <Layout>
                     <Sider className='sider' trigger={null}>
-                        <Menu className='menu'                        >
+                        <Menu className='menu'>
                             {Constants.Menu.List.map((it, index) => {
                                 return (
                                     <div
@@ -118,6 +130,16 @@ const MainLayout = ({ ...props }: any) => {
                                 )
                             })}
                         </Menu>
+                        <div className='px-2.5 profile'>
+                            <a href={ROUTE_PATH.PROFILE}>
+                                <div className='border-[1px] border-[#346164] rounded-[24px] flex items-center gap-2 cursor-pointer'>
+                                    <img src={avatar} alt="" width={50} height={50} />
+                                    <div className='menu-title text-truncate'>
+                                        @Qiunf
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
                     </Sider>
                     <Content className='bg-content flex flex-col py-3'>
                         {props.children}

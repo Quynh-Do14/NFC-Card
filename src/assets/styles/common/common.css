@@ -145,6 +145,7 @@
     padding: 10px;
     position: relative;
     overflow: hidden;
+    width: 100%;
 }
 
 .link-container .tab-content .tab-pane {
@@ -175,7 +176,8 @@
 
 .link-container .add-link-container .show-more-option {
     transform: translateY(100%);
-    transition: transform 0.5s ease, opacity 0.5s ease;
+    overflow: hidden;
+    transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
 }
 
 .link-container .add-link-container .show-more-option.show {
@@ -211,6 +213,10 @@
         padding: 0 150px;
     }
 
+    .profile-container .padding-link {
+        padding: 40px 420px
+    }
+
     .link-container .mobile-screen .mobile-screen-container {
         width: 360px;
         height: 640px;
@@ -224,6 +230,10 @@
         padding: 0 100px;
     }
 
+    .profile-container .padding-link {
+        padding: 40px 320px
+    }
+
     .link-container .mobile-screen .mobile-screen-container {
         width: 360px;
         height: 640px;
@@ -235,6 +245,10 @@
     .customize-link-container .padding-link,
     .link-container .padding-link {
         padding: 0 60px;
+    }
+
+    .profile-container .padding-link {
+        padding: 40px 150px
     }
 
     .link-container .mobile-screen .mobile-screen-container {
@@ -263,6 +277,10 @@
 
     .customize-link-container .padding-link,
     .link-container .padding-link {
+        padding: 0px 100px 80px;
+    }
+
+    .profile-container .padding-link {
         padding: 0px 100px 80px;
     }
 
@@ -311,12 +329,20 @@
         padding: 0px 50px 80px;
     }
 
+    .profile-container .padding-link {
+        padding: 0px 50px 80px;
+    }
+
 }
 
 @media only screen and (max-width: 425px) {
 
     .customize-link-container .padding-link,
     .link-container .padding-link {
+        padding: 0px 20px 80px;
+    }
+
+    .profile-container .padding-link {
         padding: 0px 20px 80px;
     }
 

@@ -27,7 +27,8 @@ const LinkTreePage = () => {
                 isURL: true,
                 isShow: false,
                 thumbnail: {},
-                thumbnailURL: null
+                thumbnailURL: null,
+                layout: 1
             }
         ]);
 
@@ -69,7 +70,6 @@ const LinkTreePage = () => {
     const onPreview = () => {
         setIsPreview(!isPreview);
     };
-    console.log("listLink", listLink);
 
     return (
         <MainLayout>

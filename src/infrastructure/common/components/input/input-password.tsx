@@ -29,6 +29,7 @@ const InputPasswordCommon = (props: Props) => {
         data
     } = props;
     const [value, setValue] = useState<string>("");
+    const [isFocused, setIsFocused] = useState<boolean>(false);
 
     const onChange = (e: any) => {
         setValue(e.target.value || "");
@@ -42,6 +43,12 @@ const InputPasswordCommon = (props: Props) => {
         if (isRequired) {
             validateFields(isImplicitChange, attribute, !value, setValidate, validate, !value ? `Vui lòng nhập ${labelLower}` : "");
         }
+        if (value) {
+            setIsFocused(true);
+        }
+        else {
+            setIsFocused(false);
+        }
     };
 
     useEffect(() => {
@@ -54,9 +61,15 @@ const InputPasswordCommon = (props: Props) => {
             onBlur(true);
         }
     }, [submittedTime]);
+
+    const handleFocus = () => {
+        setIsFocused(true);
+    };
+
+
     return (
         <div>
-            <div className='mb-4 input-common'>
+            <div className={`mb-4 input-common ${isFocused ? 'focused' : ''}`}>
                 <div className='title mb-2'>
                     <span>
                         <span className='label'>{label}</span>
@@ -69,8 +82,8 @@ const InputPasswordCommon = (props: Props) => {
                         value={value ? value : ""}
                         onChange={onChange}
                         onBlur={() => onBlur(false)}
+                        onFocus={handleFocus}
                         disabled={disabled}
-                        placeholder={`Nhập ${labelLower}`}
                         className={`${validate[attribute]?.isError ? "input-error" : ""}`}
                     />
                     <MessageError isError={validate[attribute]?.isError || false} message={validate[attribute]?.message || ""} />

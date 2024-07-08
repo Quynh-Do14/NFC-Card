@@ -208,4 +208,18 @@ export default class Constants {
             },
         ]
     }
+    static ConfigLayout = class {
+        static List = [
+            {
+                id: 1,
+                name: "Cơ bản",
+                content: "Hiệu quả, trực tiếp và nhỏ gọn",
+            },
+            {
+                id: 2,
+                name: "Nâng cao",
+                content: "Làm cho liên kết của bạn nổi bật với màn hình lớn hơn, hấp dẫn hơn",
+            },
+        ]
+    }
 };

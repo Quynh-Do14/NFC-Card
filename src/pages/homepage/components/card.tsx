@@ -1,11 +1,9 @@
 import { QRCode } from 'antd'
-import React, { useRef, useState } from 'react'
-import { ButtonCommon } from '../../../infrastructure/common/components/button/button-common'
+import { useRef, useState } from 'react'
 type Props = {
     widthScreen: number,
     widthPadding: number,
     devideGutter: number
-    fileUrl: any,
     dataCard: any
     isDragging: boolean
     setIsDragging: Function,
@@ -15,7 +13,6 @@ const CardComponent = (props: Props) => {
         widthPadding,
         widthScreen,
         devideGutter,
-        fileUrl,
         dataCard,
         isDragging,
         setIsDragging
@@ -23,7 +20,6 @@ const CardComponent = (props: Props) => {
     const maxWidth = 800;
     const maxHeight = 470;
 
-    const [isFrstFace, setIsFrstFace] = useState<boolean>(true)
     const [degX, setDegX] = useState<number>(0);
 
     const cardRef = useRef<any>(null);
@@ -36,9 +32,8 @@ const CardComponent = (props: Props) => {
             const card = cardRef.current;
             const rect = card.getBoundingClientRect();
             const x = event.clientX - rect.left;
-            const y = event.clientY - rect.top;
+            // const y = event.clientY - rect.top;
             let deg = (rect.width - x) * 360 / 1000
-            console.log(deg, 180 - deg);
 
             setDegX(deg)
         }

@@ -1,9 +1,12 @@
-import React, { useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import { ButtonCommon } from '../../../../infrastructure/common/components/button/button-common'
-import { Col, Row, Tooltip } from 'antd';
+import { Checkbox, Col, Radio, Row, Tooltip } from 'antd';
 import InputArrayTextCommon from '../../../../infrastructure/common/components/input/array/input-array-common';
 import SwitchArrayTextCommon from '../../../../infrastructure/common/components/input/array/switch-array-common';
 import UploadArrayImage from '../../../../infrastructure/common/components/input/array/upload-array-image';
+import Constants from '../../../../core/common/constants';
+import imageType from "../../../../assets/images/type.jpg";
+
 type Props = {
     listLink: Array<any>,
     setListLink: Function,
@@ -24,14 +27,13 @@ const LinkComponents = (props: Props) => {
         onAddURL,
         onAddTitle,
         listEditAvailable,
-        setListEditAvailable,
         onEditTitle,
         onDeleteElement,
         idSelectOption,
         setIdSelectOption,
         onReState
     } = props;
-
+    const [valueLayout, setValueLayout] = useState<number>(1)
     const dragItem = useRef<any>();
     const dragOverItem = useRef<any>();
 
@@ -66,6 +68,18 @@ const LinkComponents = (props: Props) => {
         }
     };
 
+    const onChangLayout = (index: number, idLayout: number) => {
+        setListLink((prev: Array<any>) => {
+            prev[index] = {
+                ...prev[index],
+                ["layout"]: idLayout,
+            }
+            return prev;
+        });
+        setValueLayout(idLayout);
+        onReState();
+    }
+
     return (
         <div className='flex flex-col gap-6'>
             <div className='flex justify-between'>
@@ -83,14 +97,13 @@ const LinkComponents = (props: Props) => {
                     classColor={'blue'}
                     onClick={onAddTitle}
                     title={'Thêm tiêu đề'}
-                    icon={<svg fill="#FFFFFF" width="18px" height="18px" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M0 213.333C0 95.5126 95.5126 0 213.333 0H1706.67C1824.49 0 1920 95.5126 1920 213.333V1706.67C1920 1824.49 1824.49 1920 1706.67 1920H213.333C95.5126 1920 0 1824.49 0 1706.67V213.333ZM213.333 106.667C154.423 106.667 106.667 154.423 106.667 213.333V1706.67C106.667 1765.58 154.423 1813.33 213.333 1813.33H1706.67C1765.58 1813.33 1813.33 1765.58 1813.33 1706.67V213.333C1813.33 154.423 1765.58 106.667 1706.67 106.667H213.333ZM266.667 746.667C237.211 746.667 213.333 722.788 213.333 693.333V373.333C213.333 343.878 237.211 320 266.667 320H1653.33C1682.79 320 1706.67 343.878 1706.67 373.333V693.333C1706.67 722.788 1682.79 746.667 1653.33 746.667H266.667ZM346.667 426.667C331.939 426.667 320 438.606 320 453.333V613.333C320 628.061 331.939 640 346.667 640H1573.33C1588.06 640 1600 628.061 1600 613.333V453.333C1600 438.606 1588.06 426.667 1573.33 426.667H346.667Z" />
-                    </svg>}
+                    icon={<svg fill="#FFFFFF" width="20px" height="20px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 3H4c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2zm0 2 .001 4H4V5h16zM4 19v-8h16.001l.001 8H4z" /><path d="M14 6h2v2h-2zm3 0h2v2h-2z" /></svg>}
                 />
             </div>
             {
                 listLink && listLink.length && listLink.map((it, index) => {
                     const conditionIdSelect = idSelectOption == it.id
+
                     return (
                         <Row
                             key={index}
@@ -196,11 +209,51 @@ const LinkComponents = (props: Props) => {
                             </Col>
 
                             <Col span={24} className='relative'>
-                                <div className={`${conditionIdSelect ? "show" : "un-show"} show-more-option`}>
-                                    <div>
-                                        
-                                    </div>
-                                    <div className={`${it.isURL ? "justify-between" : "justify-end"} flex flex-row max-sm:flex-col md:flex-row lg:flex-col xl:flex-row  gap-3 items-center  border-t-[16px] border-[#e0e2d9] pt-6`}>
+                                <div className={`${conditionIdSelect ? "show" : "un-show"} show-more-option flex flex-col gap-3 border-t-[16px] border-[#e0e2d9] pt-6`}>
+                                    {
+                                        it.isURL && it.thumbnailURL &&
+                                        <div className='flex flex-col gap-3'>
+                                            {
+                                                Constants.ConfigLayout.List.map((item, indexX) => {
+                                                    return (
+                                                        <Row
+                                                            onClick={() => onChangLayout(index, item.id)}
+                                                            key={indexX}
+                                                            align={"middle"}
+                                                            className={`${valueLayout == item.id ? "border-[2px]" : "border-[1px]"} cursor-pointer rounded-[20px] border-[1px] border-[#346164] px-3 py-2`}>
+                                                            <Col span={2}>
+                                                                <Radio checked={valueLayout == item.id ? true : false} />
+                                                            </Col>
+                                                            <Col span={13}>
+                                                                <div className='text-[15px] font-semibold'>
+                                                                    {item.name}
+                                                                </div>
+                                                                <div className='text-[15px]'>
+                                                                    {item.content}
+                                                                </div>
+                                                            </Col>
+                                                            <Col span={9}>
+                                                                {
+                                                                    item.id == 1
+                                                                        ?
+                                                                        <div key={index} className='rounded-[20px] p-2 px-3 flex items-center bg-[#346164] gap-4'>
+                                                                            <img src={imageType} alt="" className='rounded-[50%] h-[32px] w-[32px]' />
+                                                                        </div>
+                                                                        :
+                                                                        <div key={index} className='rounded-[20px] flex items-center bg-[#346164] gap-4'>
+                                                                            <img src={imageType} alt="" className='rounded-[20px] w-full h-[10vh] object-cover' />
+                                                                        </div>
+                                                                }
+
+                                                            </Col>
+                                                        </Row>
+                                                    )
+                                                })
+                                            }
+                                        </div>
+                                    }
+
+                                    <div className={`${it.isURL ? "justify-between" : "justify-end"} flex flex-row max-sm:flex-col md:flex-row lg:flex-col xl:flex-row  gap-3 items-center`}>
                                         {it.isURL &&
                                             <UploadArrayImage
                                                 label={'Ảnh đại diện'}

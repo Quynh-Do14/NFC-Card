@@ -31,12 +31,9 @@ const ListImageBGComponent = (props: Props) => {
                 <Row gutter={[10, 10]}>
                     <Col span={24} className='p-1'>
                         <UploadBackgroundImage
-                            setFile={() => { }}
                             setDataCard={setDataCard}
-                            setChangeImg={() => { }}
                             listImg={listImg}
                             setListImg={setListImg}
-                            attributeImg={null}
                         />
                     </Col>
                     {listImg.map((it, index) => {
