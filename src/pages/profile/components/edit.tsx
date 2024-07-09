@@ -66,12 +66,12 @@ const EidtProfileComponent = (props: Props) => {
                 submittedTime={submittedTime}
             />
             <ButtonCommon
-                classColor={'green'}
+                classColor={'blue'}
                 onClick={() => { }}
                 title={'Thay đổi thông tin'}
             />
             <ButtonCommon
-                classColor={'grey'}
+                classColor={'red'}
                 onClick={() => { }}
                 title={'Xóa tài khoản'}
                 icon={<svg width="22px" height="22px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

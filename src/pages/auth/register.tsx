@@ -62,9 +62,9 @@ const RegisterPage = (props: Props) => {
                 />
             </div>
             <ButtonCommon
-                classColor={'green'}
+                classColor={'blue'}
                 onClick={() => { }}
-                title={'Đăng nhập'}
+                title={'Đăng kí'}
             />
             <div className='flex justify-center gap-1 text-[15px]'>
                 <div>Bạn đã có tài khoản?</div>

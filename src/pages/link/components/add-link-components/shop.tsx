@@ -46,7 +46,7 @@ const ShopComponent = (props: Props) => {
     return (
         <div className='flex flex-col gap-6'>
             <ButtonCommon
-                classColor={'green'}
+                classColor={'blue'}
                 onClick={onOpenAddModal}
                 title={'Thêm sản phẩm'}
                 icon={<svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

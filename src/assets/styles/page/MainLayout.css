@@ -21,7 +21,7 @@
 
 .main-layout .ant-layout-sider-children {
     background: #FFF;
-    border-radius: 16px;
+    /* border-radius: 16px; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -76,13 +76,13 @@
 
 
 .main-layout .header .active {
-    border-bottom: 4px #1b3f9b solid;
-    color: #1b3f9b;
+    border-bottom: 4px #e43d3d solid;
+    color: #e43d3d;
 }
 
 .main-layout .header .active path,
 .main-layout .header .active circle {
-    stroke: #1b3f9b;
+    stroke: #e43d3d;
 }
 
 
@@ -102,11 +102,11 @@
 }
 
 .main-layout aside.ant-layout-sider.ant-layout-sider-dark.sider {
-    max-width: 280px !important;
-    width: 280px !important;
-    flex: 1 280px !important;
+    max-width: 260px !important;
+    width: 260px !important;
+    flex: 1 260px !important;
     /* background: linear-gradient(101deg, #f5c5c5, #cbebef); */
-    background: #F2F2F2;
+    background: #17adfe1c;
     padding: 12px;
 }
 
@@ -152,26 +152,25 @@
 }
 
 .main-layout .sider .menu div.active {
-    border-left: 5px solid #1b3f9b;
+    border-left: 5px solid #e43d3d;
 }
 
 .main-layout .sider li.ant-menu-item.menu-title:hover {
     border-radius: 0px;
-    background: #ffffff;
-    color: #1b3f9b;
+    background: hsl(0, 0%, 100%);
+    color: #e43d3d;
     font-family: Roboto;
     font-size: 15px;
     font-style: normal;
     font-weight: 700;
     line-height: 24px;
-    /* 160% */
     letter-spacing: 0.15px;
 }
 
 .main-layout .sider li.ant-menu-item.menu-title.active {
     border-radius: 12px;
-    background: #1b3f9b14;
-    color: #1b3f9b;
+    background: #9b1b1b14;
+    color: #e43d3d;
     font-size: 15px;
     font-style: normal;
     font-weight: 700;
@@ -186,16 +185,27 @@
 }
 
 .main-layout .sider li.ant-menu-item.menu-title.active:hover {
-    background: #1b3f9b87;
-    color: #ffffff;
+    background: #e43d3d5d;
+    color: #000000;
 }
 
 
 .main-layout .sider li.ant-menu-item.menu-title.active path,
 .main-layout .sider li.ant-menu-item.menu-title.active circle {
-    stroke: #1b3f9b;
+    stroke: #e43d3d;
+    transition: 0.9s;
 }
 
+.main-layout .sider li.ant-menu-item.menu-title:hover path,
+.main-layout .sider li.ant-menu-item.menu-title:hover circle {
+    stroke: #e43d3d;
+    transition: 0.9s;
+}
+
+.main-layout .sider li.ant-menu-item.menu-title.active:hover path,
+.main-layout .sider li.ant-menu-item.menu-title.active:hover circle {
+    stroke: #000000;
+}
 
 .main-layout .content .header-page .title-page {
     color: rgba(0, 0, 0, 0.90);
@@ -209,7 +219,7 @@
 
 .main-layout .bg-content {
     /* background: linear-gradient(230deg, #f1caca, #d1eaed); */
-    background: #F2F2F2;
+    background: #17adfe1c;
     /* background: #A8DADC; */
 }
 

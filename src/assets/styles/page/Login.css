@@ -79,6 +79,40 @@
     transition: all 0.5s ease-in-out;
 }
 
+.auth-page .cover .cover-img {
+    background-image: url("../../images/phone.png");
+    background-color: #17adfe;
+    border-left: 1px solid #17adfe;
+}
+
+/* .auth-page .cover .cover-img .switch {
+    background-color: #17adfe;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+
+.auth-page .cover.login .cover-img .switch {
+
+    right: -36px;
+    top: 50%;
+}
+
+.auth-page .cover.register .cover-img .switch {
+    left: -36px;
+    top: 50%;
+}
+
+.auth-page .cover .cover-img .switch span {
+    font-size: 15px;
+    color: #FFF;
+    font-weight: 600;
+} */
+
 .auth-page .page.login,
 .auth-page .page.register {
     background: #FFF;

@@ -10,7 +10,7 @@ const InfoComponent = (props: Props) => {
         setDataCard
     } = props
     return (
-        <div className='bg-[#ffffff] shadow-sm border-[1px] border-[#f2f2f0] rounded-[12px] p-6 flex flex-col gap-4'>
+        <div className='bg-[#ffffff] shadow-md border-[1px] border-[#f2f2f0] rounded-[12px] p-6 flex flex-col gap-4'>
             <div className="text-[18px] text-[#1e2330] font-semibold">Thông tin thẻ</div>
             <div className='p-4'>
                 <Row gutter={[20, 20]}>

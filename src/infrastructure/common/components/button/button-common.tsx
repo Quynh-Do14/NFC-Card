@@ -1,7 +1,7 @@
 import { Button } from 'antd'
 import "../../../../assets/styles/components/button.css"
 type Props = {
-    classColor: "blue" | "gradient" | "grey" | "black" | "orange" | "green",
+    classColor: "blue" | "gradient" | "grey" | "black" | "orange" | "green" | "red",
     onClick: Function,
     icon?: any,
     title: string,

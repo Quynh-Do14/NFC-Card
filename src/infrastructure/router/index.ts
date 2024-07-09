@@ -1,16 +1,17 @@
 import { ROUTE_PATH } from "../../core/common/appRouter";
 import AuthPage from "../../pages/auth";
 import CustomizeLinkPage from "../../pages/customize-link";
-import CustomCardPage from "../../pages/homepage";
+import CustomCardPage from "../../pages/custom-card";
 import LinkTreePage from "../../pages/link";
 import ProfilePage from "../../pages/profile";
 import MainLayout from "../common/Layouts/Main-Layout";
+import HomePage from "../../pages/homepage";
 
 
 export const privateRoutes = [
     {
         path: ROUTE_PATH.HOME_PAGE,
-        component: MainLayout,
+        component: HomePage,
         private: false,
     },
     {

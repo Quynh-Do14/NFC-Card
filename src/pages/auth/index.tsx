@@ -16,6 +16,8 @@ const AuthPage = () => {
     const onLoginAsync = () => {
         navigate(ROUTE_PATH.HOME_PAGE)
     }
+    console.log("isLoginPage",isLoginPage);
+    
     return (
         <Row className='auth-page'>
             <Col sm={24} md={12} className='w-full page login'>
@@ -30,12 +32,10 @@ const AuthPage = () => {
                 />
             </Col>
             <Col sm={24} md={12} className={`${isLoginPage ? "login" : "register"} cover`}>
-                <div className='bg-red-100 w-full h-[100vh] flex justify-center items-center'>
-                    <ButtonCommon
-                        classColor={'green'}
-                        onClick={onOpenLoginPage}
-                        title={'Đăng nhập'}
-                    />
+                <div className='cover-img w-full h-[100vh]'>
+                    {/* <div className='switch'>
+                        <span>Đăng kí</span>
+                    </div> */}
                 </div>
             </Col>
         </Row>

@@ -85,13 +85,15 @@ const MainLayout = ({ ...props }: any) => {
                                 <Col
                                     span={6}
                                     key={index}
-                                    className={`flex flex-col items-center gap-2 cursor-pointer text-[15px] whitespace-nowrap text-[#1e293bb3] font-semibold capitalize px-6 pt-5 pb-2 ${location.pathname.includes(item.link) && "active"}`}
+                                    className={`cursor-pointer text-[15px] whitespace-nowrap text-[#1e293bb3] font-semibold capitalize px-6 pt-5 pb-2 ${location.pathname.includes(item.link) && "active"}`}
                                 // onClick={() => navigate(item.link)}
                                 >
-                                    <div dangerouslySetInnerHTML={{ __html: item.icon2 }} />
-                                    {/* <item.icon style={{ fontSize: 22 }} /> */}
-                                    <a href={item.link}>
-                                        {item.label}
+                                    <a href={item.link} className='flex flex-col items-center gap-2'>
+                                        <div dangerouslySetInnerHTML={{ __html: item.icon2 }} />
+                                        {/* <item.icon style={{ fontSize: 22 }} /> */}
+                                        <div>
+                                            {item.label}
+                                        </div>
                                     </a>
                                 </Col>
                             )
@@ -101,11 +103,10 @@ const MainLayout = ({ ...props }: any) => {
                             className={`flex flex-col items-center gap-2 cursor-pointer text-[15px] whitespace-nowrap text-[#1e293bb3] font-semibold capitalize px-6 pt-5 pb-2 ${location.pathname.includes("profile") && "active"}`}
                         // onClick={() => navigate(item.link)}
                         >
-                            <img src={avatar} alt="" width={40} height={40} />
-                            {/* <item.icon style={{ fontSize: 22 }} /> */}
-                            {/* <a>
-                                @QuynhDo
-                            </a> */}
+                            <a href={ROUTE_PATH.PROFILE}>
+                                <img src={avatar} alt="" width={40} height={40} />
+                            </a>
+
                         </Col>
                     </Row>
                 </div>
@@ -141,7 +142,7 @@ const MainLayout = ({ ...props }: any) => {
                             </a>
                         </div>
                     </Sider>
-                    <Content className='bg-content flex flex-col py-3'>
+                    <Content className='bg-content flex flex-col py-3 pr-3'>
                         {props.children}
                     </Content>
                 </Layout>

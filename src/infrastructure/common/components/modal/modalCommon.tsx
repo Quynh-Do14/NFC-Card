@@ -105,7 +105,7 @@ const ModalCommon = (props: Props) => {
                                 </Col>
                             </Row>
                             <ButtonCommon
-                                classColor={'green'}
+                                classColor={'blue'}
                                 onClick={() => { }}
                                 title={'Thêm sản phẩm'} />
                         </div>

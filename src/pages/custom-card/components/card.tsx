@@ -1,5 +1,5 @@
-import { QRCode } from 'antd'
-import { useRef, useState } from 'react'
+import { QRCode } from 'antd';
+import { useRef, useState } from 'react';
 type Props = {
     widthScreen: number,
     widthPadding: number,

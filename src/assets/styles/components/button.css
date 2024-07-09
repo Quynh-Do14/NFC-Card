@@ -54,7 +54,7 @@
 
 .button-common button.ant-btn.ant-btn-default.blue,
 .button-filter-common button.ant-btn.ant-btn-default.blue {
-  background: #1b3f9b;
+  background: #17adfe;
 }
 
 .button-common button.ant-btn.ant-btn-default.grey,
@@ -77,6 +77,16 @@
 .button-common button.ant-btn.ant-btn-default.upload,
 .button-filter-common button.ant-btn.ant-btn-default.upload {
   background: #E8EAEE;
+}
+
+.button-common button.ant-btn.ant-btn-default.red,
+.button-filter-common button.ant-btn.ant-btn-default.red {
+  border: 1px solid #e91e1e;
+  color: #e91e1e;
+}
+
+.button-common button.ant-btn.ant-btn-default.red path {
+  stroke: #e91e1e;
 }
 
 .button-filter-common button.ant-btn.ant-btn-default.orange:hover,

@@ -70,7 +70,7 @@ const LoginPage = (props: Props) => {
                 </div>
             </div>
             <ButtonCommon
-                classColor={'green'}
+                classColor={'blue'}
                 onClick={() => onLogin()}
                 title={'Đăng nhập'}
             />

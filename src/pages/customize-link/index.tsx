@@ -20,7 +20,8 @@ const listLink = [
         content: "https://www.youtube.com/watch?v=DZDYZ9nRHfU&list=RDkNPX8folSyo&index=5",
         isURL: true,
         isShow: true,
-        layout: 1
+        layout: 1,
+        thumbnailURL: "https://studiovietnam.com/wp-content/uploads/2020/10/chup-anh-cac-san-pham-cong-nghe-01.jpg"
     },
     {
         id: 3,
@@ -28,7 +29,8 @@ const listLink = [
         content: "https://www.youtube.com/watch?v=DZDYZ9nRHfU&list=RDkNPX8folSyo&index=5",
         isURL: true,
         isShow: true,
-        layout: 2
+        layout: 2,
+        thumbnailURL: "https://studiovietnam.com/wp-content/uploads/2020/10/chup-anh-cac-san-pham-cong-nghe-01.jpg"
     },
 ]
 const CustomizeLinkPage = () => {
