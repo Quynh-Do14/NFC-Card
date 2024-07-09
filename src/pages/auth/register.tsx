@@ -48,7 +48,6 @@ const RegisterPage = (props: Props) => {
                     validate={validate}
                     setValidate={setValidate}
                     submittedTime={submittedTime}
-                    autoFocus={true}
                 />
                 <InputPasswordCommon
                     label={"Mật khẩu"}
@@ -71,7 +70,7 @@ const RegisterPage = (props: Props) => {
                 <div>Bạn đã có tài khoản?</div>
                 <div
                     onClick={() => onOpenLoginPage()}
-                    className='font-semibold cursor-pointer'
+                    className='font-semibold cursor-pointer hover:underline duration-300'
                 >
                     Đăng nhập
                 </div>

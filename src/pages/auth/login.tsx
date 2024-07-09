@@ -5,10 +5,12 @@ import InputPasswordCommon from '../../infrastructure/common/components/input/in
 import { ButtonCommon } from '../../infrastructure/common/components/button/button-common';
 type Props = {
     onOpenLoginPage: Function,
+    onLogin: Function
 }
 const LoginPage = (props: Props) => {
     const {
-        onOpenLoginPage
+        onOpenLoginPage,
+        onLogin
     } = props;
 
     const [validate, setValidate] = useState<any>({});
@@ -33,6 +35,7 @@ const LoginPage = (props: Props) => {
         });
         return allRequestOK;
     };
+
     return (
         <div className='flex flex-col justify-center gap-8 padding-common h-[100vh]'>
             <div className='text-[40px] font-bold text-center'>Welcome back!</div>
@@ -61,7 +64,6 @@ const LoginPage = (props: Props) => {
                     submittedTime={submittedTime}
                 />
                 <div
-                    onClick={() => onOpenLoginPage()}
                     className='font-semibold cursor-pointer text-end text-[15px] hover:underline duration-300'
                 >
                     Quên mật khẩu
@@ -69,7 +71,7 @@ const LoginPage = (props: Props) => {
             </div>
             <ButtonCommon
                 classColor={'green'}
-                onClick={() => { }}
+                onClick={() => onLogin()}
                 title={'Đăng nhập'}
             />
             <ButtonCommon

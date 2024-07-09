@@ -40,6 +40,27 @@
     .profile-container .padding-link {
         padding: 0px 50px 80px;
     }
+
+    .auth-page .cover {
+        display: none;
+    }
+
+    .auth-page .page.register {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .auth-page .page.register.up {
+        transform: translateY(0%);
+    }
+
+    .auth-page .page.register.down {
+        transform: translateY(100%);
+    }
 }
 
 @media only screen and (max-width: 425px) {
@@ -56,6 +77,12 @@
     right: 0;
     z-index: 12;
     transition: all 0.5s ease-in-out;
+}
+
+.auth-page .page.login,
+.auth-page .page.register {
+    background: #FFF;
+    z-index: 12;
 }
 
 .auth-page .cover.login {
