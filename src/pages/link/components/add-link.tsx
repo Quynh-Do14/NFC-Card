@@ -57,27 +57,29 @@ const AddLink = (props: Props) => {
 
     return (
         <div className='add-link-container border-r-[1px] border-r-[#ffffff] flex flex-col gap-6 px-2 relative'>
-            <Row gutter={[0, 15]} className='bg-[#FFFFFF] shadow-sm rounded-[16px] px-4 py-6'>
-                <Col xs={24} sm={24} md={14} className='flex items-center gap-1'>
-                    <div className='text-[15px] font-semibold'>
-                        Liên kết của bạn:
-                    </div>
-                    <div className='text-[15px] font-normal underline cursor-pointer'>
-                        techid:QuynhDo
-                    </div>
-                </Col>
-                <Col xs={24} sm={24} md={10} className='flex sm:justify-start md:justify-end'>
-                    <div className='bg-[#eaedf2] rounded-[20px] shadow-md flex items-center gap-1 p-3 cursor-pointer'>
-                        <div className='text-[15px] font-semibold'>
-                            Sao chép liên kết
+            <div className='flex flex-col gap-6 py-5 lg:py-0'>
+                <Row gutter={[0, 15]} className='bg-[#FFFFFF] shadow-sm px-4 py-6'>
+                    <Col xs={24} sm={24} md={14} className='flex items-center gap-1'>
+                        <h2 className='text-[15px] font-semibold'>
+                            Liên kết của bạn:
+                        </h2>
+                        <div className='text-[15px] font-normal underline cursor-pointer'>
+                            techid:QuynhDo
                         </div>
-                        <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M21 8C21 6.34315 19.6569 5 18 5H10C8.34315 5 7 6.34315 7 8V20C7 21.6569 8.34315 23 10 23H18C19.6569 23 21 21.6569 21 20V8ZM19 8C19 7.44772 18.5523 7 18 7H10C9.44772 7 9 7.44772 9 8V20C9 20.5523 9.44772 21 10 21H18C18.5523 21 19 20.5523 19 20V8Z" fill="#0F0F0F" />
-                            <path d="M6 3H16C16.5523 3 17 2.55228 17 2C17 1.44772 16.5523 1 16 1H6C4.34315 1 3 2.34315 3 4V18C3 18.5523 3.44772 19 4 19C4.55228 19 5 18.5523 5 18V4C5 3.44772 5.44772 3 6 3Z" fill="#0F0F0F" />
-                        </svg>
-                    </div>
-                </Col>
-            </Row>
+                    </Col>
+                    <Col xs={24} sm={24} md={10} className='flex sm:justify-start md:justify-end'>
+                        <div className='bg-[#eaedf2] rounded-[20px] shadow-md flex items-center gap-1 p-3 cursor-pointer'>
+                            <h2 className='text-[15px] font-semibold'>
+                                Sao chép liên kết
+                            </h2>
+                            <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M21 8C21 6.34315 19.6569 5 18 5H10C8.34315 5 7 6.34315 7 8V20C7 21.6569 8.34315 23 10 23H18C19.6569 23 21 21.6569 21 20V8ZM19 8C19 7.44772 18.5523 7 18 7H10C9.44772 7 9 7.44772 9 8V20C9 20.5523 9.44772 21 10 21H18C18.5523 21 19 20.5523 19 20V8Z" fill="#0F0F0F" />
+                                <path d="M6 3H16C16.5523 3 17 2.55228 17 2C17 1.44772 16.5523 1 16 1H6C4.34315 1 3 2.34315 3 4V18C3 18.5523 3.44772 19 4 19C4.55228 19 5 18.5523 5 18V4C5 3.44772 5.44772 3 6 3Z" fill="#0F0F0F" />
+                            </svg>
+                        </div>
+                    </Col>
+                </Row>
+            </div>
             <div className='flex flex-col gap-6 padding-link'>
                 <div>
                     <div className='flex'>

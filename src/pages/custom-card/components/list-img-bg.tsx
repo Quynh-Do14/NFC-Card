@@ -26,7 +26,7 @@ const ListImageBGComponent = (props: Props) => {
 
     return (
         <div className='bg-[#ffffff] shadow-md border-[1px] border-[#f2f2f0] rounded-[12px] p-6 flex flex-col gap-4'>
-            <div className="text-[18px] text-[#1e2330] font-semibold">Chọn ảnh nền</div>
+            <h2 className="text-[18px] text-[#1e2330] font-semibold">Chọn ảnh nền</h2>
             <div className='p-4'>
                 <Row gutter={[10, 10]}>
                     <Col span={24} className='p-1'>

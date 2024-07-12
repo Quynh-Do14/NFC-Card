@@ -136,12 +136,12 @@
 
 .upload-common .card .ant-upload {
   background-color: white;
-  border: 3px solid #0d9e6d;
+  border: 3px solid #01a6ff;
 }
 
 .upload-common .circle .ant-upload {
   background-color: white;
-  border: 3px solid #0d9e6d;
+  border: 3px solid #01a6ff;
   border-radius: 50%;
 }
 
@@ -167,14 +167,6 @@
   border-color: #ff3f3f !important;
 }
 
-/* .upload-common input {
-  opacity: 0;
-} */
-
-/****** IGNORE ******/
-
-
-/****** CODE ******/
 
 .file-upload {
   display: block;

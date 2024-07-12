@@ -274,11 +274,11 @@
 
     .customize-link-container .padding-link,
     .link-container .padding-link {
-        padding: 0px 100px 80px;
+        padding: 20px 100px 80px;
     }
 
     .profile-container .padding-link {
-        padding: 0px 100px 80px;
+        padding: 20px 100px 80px;
     }
 
     .link-container {
@@ -323,11 +323,11 @@
 
     .customize-link-container .padding-link,
     .link-container .padding-link {
-        padding: 0px 50px 80px;
+        padding: 20px 50px 80px;
     }
 
     .profile-container .padding-link {
-        padding: 0px 50px 80px;
+        padding: 20px 50px 80px;
     }
 
 }
@@ -336,11 +336,11 @@
 
     .customize-link-container .padding-link,
     .link-container .padding-link {
-        padding: 0px 20px 80px;
+        padding: 20px 20px 80px;
     }
 
     .profile-container .padding-link {
-        padding: 0px 20px 80px;
+        padding: 20px 20px 80px;
     }
 
 }
@@ -379,7 +379,7 @@
     transition: transform 3s;
 }
 
-.card-container .card .card-rotate {
+.card-container .card.animate .card-rotate {
     animation: flip 10s linear infinite;
 }
 

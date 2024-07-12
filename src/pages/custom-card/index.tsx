@@ -55,7 +55,7 @@ const CustomCardPage = () => {
                 onMouseUp={onMouseUp}
                 className='bg-[#FFF] h-full flex flex-col gap-2 overflow-auto p-4'>
                 <div className='py-3 border-b-[2px] border-[#f2f2f0]'>
-                    <div className='text-[24px] text-[##202020] font-bold uppercase text-center'>Thiết kế thẻ</div>
+                    <h1 className='text-[24px] text-[##202020] font-bold uppercase text-center'>Thiết kế thẻ NFC</h1>
                 </div>
                 <Row gutter={[20, 20]}>
                     <Col xs={24} sm={24} md={12} lg={12}>

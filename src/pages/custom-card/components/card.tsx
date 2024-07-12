@@ -50,7 +50,7 @@ const CardComponent = (props: Props) => {
                     <div className={`face front`}
                         style={{
                             backgroundImage: `url(${dataCard.backgroundImage})`,
-                            backgroundColor: dataCard.backgroundColor || "#000",
+                            backgroundColor: dataCard.backgroundColor || "#01a6ff",
                             backgroundRepeat: "round",
                             width: widthScreen / devideGutter - widthPadding,
                             height: (widthScreen / devideGutter - widthPadding) / 1.7,
@@ -81,7 +81,7 @@ const CardComponent = (props: Props) => {
                     <div className={`face back`}
                         style={{
                             backgroundImage: `url(${dataCard.backgroundImage})`,
-                            backgroundColor: dataCard.backgroundColor || "#000",
+                            backgroundColor: dataCard.backgroundColor || "#01a6ff",
                             backgroundRepeat: "round",
                             width: widthScreen / devideGutter - widthPadding,
                             height: (widthScreen / devideGutter - widthPadding) / 1.7,

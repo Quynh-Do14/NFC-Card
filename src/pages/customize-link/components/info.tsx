@@ -21,7 +21,7 @@ const InfoProfileComponent = (props: Props) => {
 
     return (
         <div className='flex flex-col gap-4 border-2 border-[#ffffff] bg-[#FFF] rounded-[12px] p-6'>
-            <div className="text-[18px] text-[#1e2330] font-semibold">Thông tin cá nhân</div>
+            <h2 className="text-[18px] text-[#1e2330] font-semibold">Thông tin cá nhân</h2>
             <Row gutter={[20, 20]} align={"middle"}>
                 <Col xs={24} sm={6} md={8} lg={8} xl={6} xxl={5}>
                     <div className='flex flex-col gap-4'>

@@ -11,7 +11,7 @@ const BackgroundComponent = (props: Props) => {
 
     return (
         <div className='flex flex-col gap-4 border-[1px] border-[#f2f2f0] shadow-md bg-[#FFF] rounded-[12px] p-6'>
-            <div className="text-[18px] text-[#1e2330] font-semibold">Màu sắc nền</div>
+            <h2 className="text-[18px] text-[#1e2330] font-semibold">Màu sắc nền</h2>
             <div className='flex flex-col gap-4 p-4'>
                 <ColorPickerCommon
                     label={'Màu nền'}

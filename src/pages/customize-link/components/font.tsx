@@ -11,7 +11,7 @@ const FontComponent = (props: Props) => {
 
     return (
         <div className='flex flex-col gap-4 border-2 border-[#ffffff] bg-[#FFF] rounded-[12px] p-6'>
-            <div className="text-[18px] text-[#1e2330] font-semibold">Màu chữ</div>
+            <h2 className="text-[18px] text-[#1e2330] font-semibold">Màu chữ</h2>
             <ColorPickerCommon
                 label={'Màu chữ'}
                 attribute={"fontColor"}

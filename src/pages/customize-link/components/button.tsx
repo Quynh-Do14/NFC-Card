@@ -26,12 +26,13 @@ const ButtonComponent = (props: Props) => {
             shadow
         })
     };
+    console.log('buttonType',data);
 
     return (
         <div className='flex flex-col gap-4 border-2 border-[#ffffff] bg-[#FFF] rounded-[12px] p-6'>
-            <div className="text-[18px] text-[#1e2330] font-semibold">Các nút</div>
+            <h2 className="text-[18px] text-[#1e2330] font-semibold">Các nút</h2>
             <div className='flex flex-col gap-3'>
-                <div className="text-[14px] text-[#1e2330] font-semibold">Kiểu nút</div>
+                <h3 className="text-[14px] text-[#1e2330] font-semibold">Kiểu nút</h3>
                 <Row gutter={[20, 20]}>
                     {
                         Constants.ConfigStyleButton.List.map((it, index) => {

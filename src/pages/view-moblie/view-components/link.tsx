@@ -29,7 +29,8 @@ const LinkViewComponent = (props: Props) => {
                                         style={{
                                             // background: bgBtn || "#000",
                                             borderRadius: buttonType.radius,
-                                            background: buttonType.type == Constants.ConfigStyleButton.Outline.value ? "#FFF" : (buttonType.type == Constants.ConfigStyleButton.Fill.value || Constants.ConfigStyleButton.Shadow.value) && (dataProfile.bgBtn || "#000"),
+                                            // background: buttonType.type == Constants.ConfigStyleButton.Outline.value ? "#FFF" : (buttonType.type == Constants.ConfigStyleButton.Fill.value || Constants.ConfigStyleButton.Shadow.value) && (dataProfile.bgBtn || "#000"),
+                                            background: buttonType.type == Constants.ConfigStyleButton.Outline.value ? "#FFF" : dataProfile?.buttonColor,
                                             border: buttonType.border,
                                             borderColor: buttonType.type == Constants.ConfigStyleButton.Outline.value ? dataProfile.buttonColor : buttonType.backgroundColor || "#000",
                                             boxShadow: buttonType.shadow,

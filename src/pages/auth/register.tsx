@@ -36,7 +36,7 @@ const RegisterPage = (props: Props) => {
     };
     return (
         <div className='flex flex-col justify-center gap-8 padding-common h-[100vh]'>
-            <div className='text-[40px] font-bold text-center'>Đăng kí ngay để trải nghiệm!</div>
+            <h1 className='text-[40px] font-bold text-center'>Đăng kí ngay để trải nghiệm!</h1>
             <div className='flex flex-col gap-1'>
                 <InputTextCommon
                     label={"Tên đăng nhập"}

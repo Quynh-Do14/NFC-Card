@@ -10,14 +10,14 @@ const AuthPage = () => {
     const [isLoginPage, setIsLoginPage] = useState<boolean>(false);
     const navigate = useNavigate()
     const onOpenLoginPage = () => {
-        setIsLoginPage((!isLoginPage))
+        setIsLoginPage(!isLoginPage)
     }
 
     const onLoginAsync = () => {
         navigate(ROUTE_PATH.HOME_PAGE)
     }
-    console.log("isLoginPage",isLoginPage);
-    
+    console.log("isLoginPage", isLoginPage);
+
     return (
         <Row className='auth-page'>
             <Col sm={24} md={12} className='w-full page login'>
