@@ -78,7 +78,7 @@ const MainLayout = ({ ...props }: any) => {
             <div onClick={() => setCollapsed(!collapsed)} className={`${collapsed ? "open" : "close"} overlay`}></div>
             <Layout>
                 <div className='header'>
-                    <div onClick={() => setCollapsed(!collapsed)}>
+                    <div onClick={() => setCollapsed(!collapsed)} className='cursor-pointer'>
 
                         <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M2 5.5C2 4.94772 2.44772 4.5 3 4.5H21C21.5523 4.5 22 4.94772 22 5.5V6.5C22 7.05228 21.5523 7.5 21 7.5H3C2.44772 7.5 2 7.05228 2 6.5V5.5Z" fill="#346164" />

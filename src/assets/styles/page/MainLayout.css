@@ -318,6 +318,7 @@
         position: absolute;
         background: rgba(0, 0, 0, 0.183);
         transition: 0.5s;
+        cursor: pointer;
     }
 
     .main-layout .overlay.open {
