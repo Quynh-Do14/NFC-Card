@@ -29,7 +29,7 @@ const VideoComponent = () => {
 
     return (
         <div className='video padding-common flex flex-col justify-center items-center gap-6'>
-            <h2 ref={textRef} className={`${isAnimate ? "animate" : ""} text`}>
+            <h2 ref={textRef} className={`${isAnimate ? "animate" : ""} text text-[20px] md:text-[24px] lg:text-[24px]`}>
                 Hướng dẫn sử dụng NFC
             </h2>
             <iframe className='w-full h-[50dvh]' src="https://www.youtube.com/embed/BZdvHWGh-OU?si=-bOaHxBsRszM3rSp" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
